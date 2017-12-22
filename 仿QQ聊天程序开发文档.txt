@@ -1,9 +1,8 @@
 ﻿仿QQ聊天程序开发文档
 一 客户端
 	1.登录界面 
-		[1]限制账号只能输入数字，密码为暗码
-			--     
-		[2]记住密码的功能
+		[1]限制账号只能输入数字，密码为暗码--已完成   
+		[2]记住密码的功能--
 		[3]将获取到的账号和密码发给服务器，判断是否成功登录，成功登录则进入好友界面 未成功登录则提示 并停在登录界面
 		
 	2.好友界面
@@ -13,6 +12,7 @@
 		[4]点击好友可以与好友建立起对话界面，可以互相发送消息,查看聊天记录
 		[5]可以建立群组 ，可以在群里 看到同群的好友
 		[6]设置栏可以更改 昵称 年龄 等等
+	
 		
 		
 二 服务端
@@ -24,34 +24,87 @@
 		[5].根据不同的标识来处理接受到的消息判断登录还是发送给其他人
 		[6].同步发送给其他人
 		
+		
+		
 三 数据库
-	1.表一 注册表 
+	1.表一 注册表  表名-->information 
 		[1]id int not null  Primary key
 		[2]Name char(20) not null
 		[3]passworld	char(20) not null 
 		[4]Registration datetime not null
 			
-	2.表二 端口表->发信息时取端口号		
+	2.表二 端口表->发信息时取端口号 表名-->port
 		[1]id int not null Primary key
 		[2]port char(12) not null 
 		[3]time datetime not null
 
-	3.表三 好友表 ->该人员的好友列表
+	3.表三 好友表 ->该人员的好友列表 表名--friend
 		[0]id int not null primary
 		[1]UserId int not null 
 		[2]FriendID int not null 
 
-	4.表四 聊天记录表
+	4.表四 聊天记录表	表名-->record
 		[0]id int not null primary key
 		[1]UserID int not null 
 		[2]FriendID int not null 
 		[3]chatrecord char not null 
 		[4]time detatime not null
 	5.表五 记住密码
-		[1]Userid int not null Primary Key
+		[o]nub int not null  Primary Key
+		[1]Userid int not null 
 		[2]ConputerName char not null
-		//label1.Text=System.Net.Dns.GetHostByName 本机名 
+		//label1.Text=System.Net.Dns.GetHostName()  本机名 
+		
 Winform界面   
 	客户端
 		登录界面  好友界面 换头像界面 设置界面 修改备注界面 添加好友界面  
-		cd C:\Windows\Microsoft.NET\Framework\v4.0.30319   InstallUtil.exe   sc delete WinServiceTest
+		安装服务的步骤---->cd C:\Windows\Microsoft.NET\Framework\v4.0.30319   InstallUtil.exe   sc delete WinServiceTest
+		
+服务端与客户端通信协议
+	客户端发送给服务端	
+		string[5]-->5层	传送格式
+			string[0]--->接受到的消息的类型“L”-->登录消息       接受到的消息的类型“M”-->发送的消息         		接受到的消息的类型“R”--->注册的信息
+			string[1]--->若string[0]="L"	  -->登录的账号   	若string[0]=“M”      --->要发送的账号  	   		若string[0]=“R”		 --->注册的账号
+			string[2]--->若String[0]="L"      -->登录的密码 	若string[0]=“M”      --->发送消息的对象的账号 	若string[0]=“R”		 --->注册的昵称
+			string[3]--->若string[0]="L"      -->是否记住密码 	若string[0]=“M”      --->要发送的消息 		 	若string[0]=“R”		 --->注册的密码				
+			string[4]--->若string[0]="L”      -->记住的主机号										     		若string[0]=“R”		 --->注册的时间
+	服务端发送给客户端
+		string[3]-->3层传送格式
+			string[0]--->接受类型 "L"        -->登录反馈   									接受类型"M"    -->有好友发送过来的消息
+			string[1]--->若string[0]="L"     -->反馈登录信息“true”or"false" 				若string[0]=“M”-->发送消息的账号
+		--> string[2]--->若string[1]="true"  -->返回登录的人信息和其好友的json				若string[0]=“M”-->发送过来的消息
+		|		
+		|	
+		->string[2]=json ---》 一个List<string[]>  第0个存的string[]{所有组的组名} string[1]{自己的账号,自己的昵称,自己的签名} ---> 从下标为二开始存好友的string[]{组名,账号,昵称,签名}
+		
+		
+然后统一转换成Json格式 发送
+		
+		frm.ShowDialog();
+		//如果没有其它操作也可以写作(new Form2()).ShowDialog();--->主界面显示在前
+		
+		if(checkbox.checked==true)---->则 记住密码
+		
+				
+1. 在ASP.NET中专用属性： 
+      　　获取服务器电脑名：Page.Server.ManchineName 
+      　　获取用户信息：Page.User 
+      　　获取客户端电脑名：Page.Request.UserHostName 
+      　　获取客户端电脑IP：Page.Request.UserHostAddress 
+2. 在网络编程中的通用方法： 
+      　　获取当前电脑名：static System.Net.Dns.GetHostName() 搜索
+      　　根据电脑名取出全部IP地址：static System.Net.Dns.Resolve(电脑名).AddressList 
+      　　也可根据IP地址取出电脑名：static System.Net.Dns.Resolve(IP地址).HostName 
+      　　3. 系统环境类的通用属性： 
+      　　当前电脑名：static System.Environment.MachineName 
+      　　当前电脑所属网域：static System.Environment.UserDomainName 
+      　　当前电脑用户：static System.Environment.UserNames
+	  
+	  ["L","true","YCF-YourName"]
+	  
+	["L","true","[[\"张\",\"王\",\"李\",\"赵\",\"孙\"],[\"123456\",\"aaa\",\"王舒婷\"],[\"张\",\"321\",\"啊这使得\",\"强无敌\"],[\"张\",\"321\",\"啊这使得\",\"强无敌\"],[\"李\",\"321\",\"啊这使得\",\"强无敌\"],[\"赵\",\"321\",\"啊这使得\",\"强无敌\"],[\"张\",\"31221\",\"啊的这使得\",\"强无敌\"]]"]
+	["L","true","[[\"??\",\"??\",\"??\",\"??\",\"??\"],[\"123456\",\"aaa\",\"??????\"],[\"??\",\"321\",\"????????\",\"??????\"],[\"??\",\"321\",\"????????\",\"??????\"],[\"??\",\"321\",\"????????\",\"??????\"],[\"??\",\"321\",\"????????\",\"??????\"],[\"??\",\"31221\",\"??????????\",\"??????\"]]"]
+
+	     MyNub.Text = myinformation[0];
+            MyName.Text = myinformation[1];
+            MyAutograph.Text = myinformation[3];
