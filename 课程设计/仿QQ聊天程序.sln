@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2009
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csproj", "{30115FF6-9908-411A-80DA-8E4D1188FD56}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatService", "ChatService\ChatService.csproj", "{AD4F688D-04FA-4B9E-BA1B-91CF2AD49744}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "奥术大师", "奥术大师\奥术大师.csproj", "{0DA867B8-A054-4307-BF1A-70B2E85D4BFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_CUSTOM_CONTROLS", "_CUSTOM_CONTROLS\_CUSTOM_CONTROLS.csproj", "{8F34E30F-DE61-416F-A3B0-B015AF578489}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{30115FF6-9908-411A-80DA-8E4D1188FD56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30115FF6-9908-411A-80DA-8E4D1188FD56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30115FF6-9908-411A-80DA-8E4D1188FD56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30115FF6-9908-411A-80DA-8E4D1188FD56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD4F688D-04FA-4B9E-BA1B-91CF2AD49744}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD4F688D-04FA-4B9E-BA1B-91CF2AD49744}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD4F688D-04FA-4B9E-BA1B-91CF2AD49744}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD4F688D-04FA-4B9E-BA1B-91CF2AD49744}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DA867B8-A054-4307-BF1A-70B2E85D4BFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DA867B8-A054-4307-BF1A-70B2E85D4BFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DA867B8-A054-4307-BF1A-70B2E85D4BFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DA867B8-A054-4307-BF1A-70B2E85D4BFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F34E30F-DE61-416F-A3B0-B015AF578489}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F34E30F-DE61-416F-A3B0-B015AF578489}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F34E30F-DE61-416F-A3B0-B015AF578489}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F34E30F-DE61-416F-A3B0-B015AF578489}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {370C102E-9F80-460F-B1C9-0E3D064D977A}
+	EndGlobalSection
+EndGlobal

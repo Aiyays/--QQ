@@ -1,0 +1,13 @@
+﻿Installing assembly 'G:\课程设计2\课程设计\ChatService\bin\Debug\ChatService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = G:\课程设计2\课程设计\ChatService\bin\Debug\ChatService.InstallLog
+   assemblypath = G:\课程设计2\课程设计\ChatService\bin\Debug\ChatService.exe
+Installing service ChatService...
+Service ChatService has been successfully installed.
+Creating EventLog source ChatService in log Application...
+Committing assembly 'G:\课程设计2\课程设计\ChatService\bin\Debug\ChatService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = G:\课程设计2\课程设计\ChatService\bin\Debug\ChatService.InstallLog
+   assemblypath = G:\课程设计2\课程设计\ChatService\bin\Debug\ChatService.exe

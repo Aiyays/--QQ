@@ -1,0 +1,38 @@
+C:\Users\Administrator\Desktop\新建文件夹 (4) - 副本 - 副本\Client\obj\Debug\Client.Properties.Resources.resources
+C:\Users\Administrator\Desktop\新建文件夹 (4) - 副本 - 副本\Client\obj\Debug\Client.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\新建文件夹 (4) - 副本 - 副本\Client\obj\Debug\Client.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\新建文件夹 (4) - 副本 - 副本\Client\bin\Debug\Client.exe.config
+C:\Users\Administrator\Desktop\新建文件夹 (4) - 副本 - 副本\Client\bin\Debug\Client.exe
+C:\Users\Administrator\Desktop\新建文件夹 (4) - 副本 - 副本\Client\bin\Debug\Client.pdb
+C:\Users\Administrator\Desktop\新建文件夹 (4) - 副本 - 副本\Client\obj\Debug\Client.exe
+C:\Users\Administrator\Desktop\新建文件夹 (4) - 副本 - 副本\Client\obj\Debug\Client.pdb
+C:\Users\Administrator\Desktop\新建文件夹 (4) - 副本 - 副本\Client\obj\Debug\Client.Land.resources
+G:\课程设计2\课程设计\Client\bin\Debug\Client.exe.config
+G:\课程设计2\课程设计\Client\bin\Debug\Client.exe
+G:\课程设计2\课程设计\Client\bin\Debug\Client.pdb
+G:\课程设计2\课程设计\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
+G:\课程设计2\课程设计\Client\obj\Debug\Client.MainForm.resources
+G:\课程设计2\课程设计\Client\obj\Debug\Client.Register.resources
+G:\课程设计2\课程设计\Client\obj\Debug\Client.Land.resources
+G:\课程设计2\课程设计\Client\obj\Debug\Client.Properties.Resources.resources
+G:\课程设计2\课程设计\Client\obj\Debug\Client.csproj.GenerateResource.Cache
+G:\课程设计2\课程设计\Client\obj\Debug\Client.csproj.CoreCompileInputs.cache
+G:\课程设计2\课程设计\Client\obj\Debug\Client.exe
+G:\课程设计2\课程设计\Client\obj\Debug\Client.pdb
+C:\Users\Administrator\Desktop\课程设计2\课程设计\Client\bin\Debug\Client.exe.config
+C:\Users\Administrator\Desktop\课程设计2\课程设计\Client\bin\Debug\Client.exe
+C:\Users\Administrator\Desktop\课程设计2\课程设计\Client\bin\Debug\Client.pdb
+C:\Users\Administrator\Desktop\课程设计2\课程设计\Client\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Administrator\Desktop\课程设计2\课程设计\Client\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Administrator\Desktop\课程设计2\课程设计\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\课程设计2\课程设计\Client\obj\Debug\Client.ChatForm.resources
+C:\Users\Administrator\Desktop\课程设计2\课程设计\Client\obj\Debug\Client.MainForm.resources
+C:\Users\Administrator\Desktop\课程设计2\课程设计\Client\obj\Debug\Client.Register.resources
+C:\Users\Administrator\Desktop\课程设计2\课程设计\Client\obj\Debug\Client.Land.resources
+C:\Users\Administrator\Desktop\课程设计2\课程设计\Client\obj\Debug\Client.Properties.Resources.resources
+C:\Users\Administrator\Desktop\课程设计2\课程设计\Client\obj\Debug\Client.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\课程设计2\课程设计\Client\obj\Debug\Client.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\课程设计2\课程设计\Client\obj\Debug\Client.exe
+C:\Users\Administrator\Desktop\课程设计2\课程设计\Client\obj\Debug\Client.pdb
+C:\Users\Administrator\Desktop\课程设计2\课程设计\Client\bin\Debug\_CUSTOM_CONTROLS.dll
+C:\Users\Administrator\Desktop\课程设计2\课程设计\Client\bin\Debug\_CUSTOM_CONTROLS.pdb

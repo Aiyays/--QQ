@@ -1,0 +1,29 @@
+D:\Users\sky-line\Documents\Visual Studio 2010\Projects\_CUSTOM_CONTROLS\_CUSTOM_CONTROLS\bin\Release\_CUSTOM_CONTROLS.dll
+D:\Users\sky-line\Documents\Visual Studio 2010\Projects\_CUSTOM_CONTROLS\_CUSTOM_CONTROLS\bin\Release\_CUSTOM_CONTROLS.pdb
+D:\Users\sky-line\Documents\Visual Studio 2010\Projects\_CUSTOM_CONTROLS\_CUSTOM_CONTROLS\obj\Release\ResolveAssemblyReference.cache
+D:\Users\sky-line\Documents\Visual Studio 2010\Projects\_CUSTOM_CONTROLS\_CUSTOM_CONTROLS\obj\Release\_CUSTOM_CONTROLS.Properties.Resources.resources
+D:\Users\sky-line\Documents\Visual Studio 2010\Projects\_CUSTOM_CONTROLS\_CUSTOM_CONTROLS\obj\Release\_CUSTOM_CONTROLS.ChatListBox.resources
+D:\Users\sky-line\Documents\Visual Studio 2010\Projects\_CUSTOM_CONTROLS\_CUSTOM_CONTROLS\obj\Release\ResGen.read.1.tlog
+D:\Users\sky-line\Documents\Visual Studio 2010\Projects\_CUSTOM_CONTROLS\_CUSTOM_CONTROLS\obj\Release\ResGen.write.1.tlog
+D:\Users\sky-line\Documents\Visual Studio 2010\Projects\_CUSTOM_CONTROLS\_CUSTOM_CONTROLS\obj\Release\_CUSTOM_CONTROLS.dll
+D:\Users\sky-line\Documents\Visual Studio 2010\Projects\_CUSTOM_CONTROLS\_CUSTOM_CONTROLS\obj\Release\_CUSTOM_CONTROLS.pdb
+C:\Documents and Settings\Administrator\桌面\工作\_CUSTOM_CONTROLS\_CUSTOM_CONTROLS\bin\Release\_CUSTOM_CONTROLS.dll
+C:\Documents and Settings\Administrator\桌面\工作\_CUSTOM_CONTROLS\_CUSTOM_CONTROLS\bin\Release\_CUSTOM_CONTROLS.pdb
+C:\Documents and Settings\Administrator\桌面\工作\_CUSTOM_CONTROLS\_CUSTOM_CONTROLS\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\桌面\工作\_CUSTOM_CONTROLS\_CUSTOM_CONTROLS\obj\Release\_CUSTOM_CONTROLS.Properties.Resources.resources
+C:\Documents and Settings\Administrator\桌面\工作\_CUSTOM_CONTROLS\_CUSTOM_CONTROLS\obj\Release\_CUSTOM_CONTROLS.ChatListBox.resources
+C:\Documents and Settings\Administrator\桌面\工作\_CUSTOM_CONTROLS\_CUSTOM_CONTROLS\obj\Release\GenerateResource-ResGen.read.1.tlog
+C:\Documents and Settings\Administrator\桌面\工作\_CUSTOM_CONTROLS\_CUSTOM_CONTROLS\obj\Release\GenerateResource-ResGen.read.7.tlog
+C:\Documents and Settings\Administrator\桌面\工作\_CUSTOM_CONTROLS\_CUSTOM_CONTROLS\obj\Release\ResGen.read.1.tlog
+C:\Documents and Settings\Administrator\桌面\工作\_CUSTOM_CONTROLS\_CUSTOM_CONTROLS\obj\Release\GenerateResource-ResGen.write.1.tlog
+C:\Documents and Settings\Administrator\桌面\工作\_CUSTOM_CONTROLS\_CUSTOM_CONTROLS\obj\Release\ResGen.write.1.tlog
+C:\Documents and Settings\Administrator\桌面\工作\_CUSTOM_CONTROLS\_CUSTOM_CONTROLS\obj\Release\_CUSTOM_CONTROLS.dll
+C:\Documents and Settings\Administrator\桌面\工作\_CUSTOM_CONTROLS\_CUSTOM_CONTROLS\obj\Release\_CUSTOM_CONTROLS.pdb
+C:\Users\Administrator\Desktop\_CUSTOM_CONTROLS\_CUSTOM_CONTROLS\bin\Release\_CUSTOM_CONTROLS.dll
+C:\Users\Administrator\Desktop\_CUSTOM_CONTROLS\_CUSTOM_CONTROLS\bin\Release\_CUSTOM_CONTROLS.pdb
+C:\Users\Administrator\Desktop\_CUSTOM_CONTROLS\_CUSTOM_CONTROLS\obj\Release\_CUSTOM_CONTROLS.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\_CUSTOM_CONTROLS\_CUSTOM_CONTROLS\obj\Release\_CUSTOM_CONTROLS.Properties.Resources.resources
+C:\Users\Administrator\Desktop\_CUSTOM_CONTROLS\_CUSTOM_CONTROLS\obj\Release\_CUSTOM_CONTROLS.ChatListBox.resources
+C:\Users\Administrator\Desktop\_CUSTOM_CONTROLS\_CUSTOM_CONTROLS\obj\Release\_CUSTOM_CONTROLS.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\_CUSTOM_CONTROLS\_CUSTOM_CONTROLS\obj\Release\_CUSTOM_CONTROLS.dll
+C:\Users\Administrator\Desktop\_CUSTOM_CONTROLS\_CUSTOM_CONTROLS\obj\Release\_CUSTOM_CONTROLS.pdb
