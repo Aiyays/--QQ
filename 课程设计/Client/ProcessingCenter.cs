@@ -121,6 +121,7 @@ namespace Client
 
                 case "M":
                     adoptM(json);
+
                     break;
             }
         }
