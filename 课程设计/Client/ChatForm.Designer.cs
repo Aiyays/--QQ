@@ -28,19 +28,67 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChatForm));
+            this.btnSend = new System.Windows.Forms.Button();
+            this.txtSend = new System.Windows.Forms.TextBox();
+            this.txtShow = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
+            // 
+            // btnSend
+            // 
+            this.btnSend.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnSend.Location = new System.Drawing.Point(655, 454);
+            this.btnSend.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSend.Name = "btnSend";
+            this.btnSend.Size = new System.Drawing.Size(97, 32);
+            this.btnSend.TabIndex = 0;
+            this.btnSend.Text = "发送";
+            this.btnSend.UseVisualStyleBackColor = true;
+            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
+            // 
+            // txtSend
+            // 
+            this.txtSend.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtSend.Location = new System.Drawing.Point(16, 456);
+            this.txtSend.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSend.Name = "txtSend";
+            this.txtSend.Size = new System.Drawing.Size(629, 26);
+            this.txtSend.TabIndex = 1;
+            // 
+            // txtShow
+            // 
+            this.txtShow.BackColor = System.Drawing.Color.White;
+            this.txtShow.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtShow.Location = new System.Drawing.Point(16, 4);
+            this.txtShow.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtShow.Multiline = true;
+            this.txtShow.Name = "txtShow";
+            this.txtShow.ReadOnly = true;
+            this.txtShow.Size = new System.Drawing.Size(735, 428);
+            this.txtShow.TabIndex = 2;
             // 
             // ChatForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(737, 477);
+            this.ClientSize = new System.Drawing.Size(768, 496);
+            this.Controls.Add(this.txtShow);
+            this.Controls.Add(this.txtSend);
+            this.Controls.Add(this.btnSend);
+            this.Font = new System.Drawing.Font("幼圆", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ChatForm";
             this.Text = "ChatForm";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Button btnSend;
+        private System.Windows.Forms.TextBox txtSend;
+        private System.Windows.Forms.TextBox txtShow;
     }
 }

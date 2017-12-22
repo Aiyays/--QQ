@@ -17,6 +17,7 @@ namespace Client
             Connect.Start();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            // Application.Run(new ChatForm("孙久华","","","张熙贤"));
             Application.Run(new Land());
             if (ProcessingCenter.MainF)
             {

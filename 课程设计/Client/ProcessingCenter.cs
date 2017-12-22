@@ -25,6 +25,7 @@ namespace Client
         public static bool MainF { get { return mainF; } set { mainF = value; } }
         public static bool kongzhi=true ;
         public static bool Kongzhi { get { return kongzhi; }set { kongzhi = value; } }
+
         /// <summary>
         /// 控制 登录 和 消息的委托
         /// </summary>
@@ -113,8 +114,6 @@ namespace Client
                         {
                             Debug.Print(GetType(json)[2]);
                             while (kongzhi) ;
-
-                            
                             Adopt(GetType(json)[2]);
                         }
                     }
