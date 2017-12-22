@@ -1,0 +1,57 @@
+﻿仿QQ聊天程序开发文档
+一 客户端
+	1.登录界面 
+		[1]限制账号只能输入数字，密码为暗码
+			--     
+		[2]记住密码的功能
+		[3]将获取到的账号和密码发给服务器，判断是否成功登录，成功登录则进入好友界面 未成功登录则提示 并停在登录界面
+		
+	2.好友界面
+		[1]框架 --- 有头像 昵称 ID号 好友栏 状态 添加好友 群组 修改备注 设置 
+		[2]点击头像可以更换头像
+		[3]可以修改状态栏，也可以根据状态栏看到好友是否在线
+		[4]点击好友可以与好友建立起对话界面，可以互相发送消息,查看聊天记录
+		[5]可以建立群组 ，可以在群里 看到同群的好友
+		[6]设置栏可以更改 昵称 年龄 等等
+		
+		
+二 服务端
+	1.服务器
+		[1].写成一个Windows服务
+		[2].有发送和接受的功能
+		[3].连接数据库,并且调用，判断账户和密码,将聊天信息存储到数据库 ，可以删除和查看
+		[4].当登录成功后在数据库中记录当前账户名和端口信息
+		[5].根据不同的标识来处理接受到的消息判断登录还是发送给其他人
+		[6].同步发送给其他人
+		
+三 数据库
+	1.表一 注册表 
+		[1]id int not null  Primary key
+		[2]Name char(20) not null
+		[3]passworld	char(20) not null 
+		[4]Registration datetime not null
+			
+	2.表二 端口表->发信息时取端口号		
+		[1]id int not null Primary key
+		[2]port char(12) not null 
+		[3]time datetime not null
+
+	3.表三 好友表 ->该人员的好友列表
+		[0]id int not null primary
+		[1]UserId int not null 
+		[2]FriendID int not null 
+
+	4.表四 聊天记录表
+		[0]id int not null primary key
+		[1]UserID int not null 
+		[2]FriendID int not null 
+		[3]chatrecord char not null 
+		[4]time detatime not null
+	5.表五 记住密码
+		[1]Userid int not null Primary Key
+		[2]ConputerName char not null
+		//label1.Text=System.Net.Dns.GetHostByName 本机名 
+Winform界面   
+	客户端
+		登录界面  好友界面 换头像界面 设置界面 修改备注界面 添加好友界面  
+		cd C:\Windows\Microsoft.NET\Framework\v4.0.30319   InstallUtil.exe   sc delete WinServiceTest
