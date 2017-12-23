@@ -71,7 +71,7 @@
             this.MyName.AutoSize = true;
             this.MyName.BackColor = System.Drawing.Color.Transparent;
             this.MyName.Font = new System.Drawing.Font("新宋体", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.MyName.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.MyName.ForeColor = System.Drawing.Color.Red;
             this.MyName.Location = new System.Drawing.Point(129, 35);
             this.MyName.Name = "MyName";
             this.MyName.Size = new System.Drawing.Size(110, 24);
@@ -82,7 +82,7 @@
             // 
             this.MyAutograph.AutoSize = true;
             this.MyAutograph.BackColor = System.Drawing.Color.Transparent;
-            this.MyAutograph.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.MyAutograph.ForeColor = System.Drawing.SystemColors.Info;
             this.MyAutograph.Location = new System.Drawing.Point(131, 95);
             this.MyAutograph.Name = "MyAutograph";
             this.MyAutograph.Size = new System.Drawing.Size(125, 12);
@@ -94,7 +94,7 @@
             this.lable5.AutoSize = true;
             this.lable5.BackColor = System.Drawing.Color.Transparent;
             this.lable5.ForeColor = System.Drawing.Color.DimGray;
-            this.lable5.Location = new System.Drawing.Point(-2, 9);
+            this.lable5.Location = new System.Drawing.Point(10, 9);
             this.lable5.Name = "lable5";
             this.lable5.Size = new System.Drawing.Size(65, 12);
             this.lable5.TabIndex = 7;
@@ -109,6 +109,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(12, 35);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(97, 97);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
             // 
@@ -116,7 +117,7 @@
             // 
             this.MyNub.AutoSize = true;
             this.MyNub.BackColor = System.Drawing.Color.Transparent;
-            this.MyNub.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.MyNub.ForeColor = System.Drawing.SystemColors.Highlight;
             this.MyNub.Location = new System.Drawing.Point(140, 59);
             this.MyNub.Name = "MyNub";
             this.MyNub.Size = new System.Drawing.Size(59, 12);
@@ -126,15 +127,15 @@
             // FriendList
             // 
             this.FriendList.BackColor = System.Drawing.Color.White;
-            this.FriendList.BackgroundImage = global::Client.Properties.Resources._133403hfq0g077fwjd5wy5;
+            this.FriendList.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("FriendList.BackgroundImage")));
             this.FriendList.Font = new System.Drawing.Font("新宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.FriendList.ForeColor = System.Drawing.Color.Black;
-            this.FriendList.ItemColor = System.Drawing.Color.Teal;
+            this.FriendList.ItemColor = System.Drawing.Color.LightYellow;
             this.FriendList.Location = new System.Drawing.Point(0, 173);
             this.FriendList.Name = "FriendList";
             this.FriendList.ScrollArrowColor = System.Drawing.Color.Black;
-            this.FriendList.Size = new System.Drawing.Size(289, 456);
-            this.FriendList.SubItemColor = System.Drawing.Color.Silver;
+            this.FriendList.Size = new System.Drawing.Size(289, 480);
+            this.FriendList.SubItemColor = System.Drawing.Color.Bisque;
             this.FriendList.TabIndex = 10;
             this.FriendList.DoubleClickSubItem += new _CUSTOM_CONTROLS.ChatListBox.ChatListEventHandler(this.FriendList_DoubleClickSubItem);
             // 
@@ -143,8 +144,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.BackgroundImage = global::Client.Properties.Resources._133403hfq0g077fwjd5wy5;
-            this.ClientSize = new System.Drawing.Size(289, 679);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(289, 653);
             this.Controls.Add(this.FriendList);
             this.Controls.Add(this.MyNub);
             this.Controls.Add(this.pictureBox1);
@@ -154,7 +155,9 @@
             this.Controls.Add(this.btnDown);
             this.Controls.Add(this.btnClose);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

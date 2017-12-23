@@ -14,7 +14,7 @@ using System.Diagnostics;
 namespace Client
 {
     public delegate void Adopt(string m);
-    public delegate void Adoptf(ChatListBox chatListBox, string[] myinformation);
+    public delegate void Adoptf(ChatListBox chatListBox);
     public static class ProcessingCenter
     {
 
@@ -107,6 +107,7 @@ namespace Client
             switch (GetType(json)[0])
             {
                 case "L":
+                    Debug.Print("接受到的登陆的信息");
                     adoptL(json);
                     if (GetType(json)[1] == "true")
                     {
@@ -120,6 +121,7 @@ namespace Client
                     break;
 
                 case "M":
+                    Debug.Print("接受到聊天");
                     adoptM(json);
 
                     break;

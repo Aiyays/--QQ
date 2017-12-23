@@ -61,6 +61,8 @@ namespace Client
             txtShow.AppendText(DateTime.Now+"  "+friendName+":"+ ProcessingCenter.GetType(json)[2]);
         }
 
-        private void btnSend_Click(object sender, EventArgs e){ SendMessage(); }
+       
+        private void btnSend_Click(object sender, EventArgs e){  SendMessage(); }
+
     }
 }
