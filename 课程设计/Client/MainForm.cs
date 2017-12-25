@@ -23,6 +23,7 @@ namespace Client
             InitializeComponent();
             ProcessingCenter.Kongzhi = false;
             ProcessingCenter.ChageAdoptF = new Adoptf(FriendLis);
+            ProcessingCenter.ChageAdoptM=new Adopt(Recevice);
             
         }
 
@@ -51,8 +52,16 @@ namespace Client
         {
             ///e.SelectSubItem.DisplayName---->为好友昵称
             ///e.SelectSubItem.NicName ---->为好友账号
-           // MessageBox.Show(e.SelectSubItem.DisplayName+e.SelectSubItem.NicName);
-            new ChatForm(e.SelectSubItem.DisplayName, e.SelectSubItem.NicName, MyNub.Text, MyName.Text).Show();
+            // MessageBox.Show(e.SelectSubItem.DisplayName+e.SelectSubItem.NicName);
+            ChatForm a = new ChatForm(e.SelectSubItem.DisplayName, e.SelectSubItem.NicName, MyNub.Text, MyName.Text);
+            a.Show();
+            e.SelectSubItem.IsTwinkle = false;
+            string[] ne= ProcessingCenter.ClikRm(e.SelectSubItem.NicName);
+            if(ne!=null)
+            {
+                a.Send(ProcessingCenter.GetType(ne[2]));
+            }
+
 
             //点击事件
         }
@@ -110,11 +119,39 @@ namespace Client
         public void FriendLis(ChatListBox chatListBo)
         {
             FriendList = chatListBo;
+            ProcessingCenter.agent = FriendList;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
             MyInformatin(a);
         }
+
+
+        /// <summary>
+        /// 设置动态闪烁
+        /// </summary>
+        /// <param 接受到的消息="json"></param>
+        /// <param 界面="chatListBox1"></param>
+        public  void Recevice( string json)
+        {
+            Debug.Print("接受到一个信息");
+            string[] rece = ProcessingCenter.GetType(json);
+            for (int i = 0; i < FriendList.Items.Count; i++)
+            {
+                for (int j = 0; j < FriendList.Items[i].SubItems.Count; j++)
+                {
+                    Debug.Print(FriendList.Items[i].SubItems[j].NicName.ToString()+"这是接到的账号"+ rece[1]);
+                    if (FriendList.Items[i].SubItems[j].NicName.ToString() == rece[1])
+                    {
+                        Debug.Print("准备闪烁");
+                        FriendList.Items[i].SubItems[j].IsTwinkle = !FriendList.Items[i].SubItems[j].IsTwinkle;
+                        ProcessingCenter.Write(json);
+                    }
+                }
+            }
+        }
+
+        
     }
 }

@@ -15,6 +15,7 @@ namespace Client
 {
     public delegate void Adopt(string m);
     public delegate void Adoptf(ChatListBox chatListBox);
+    public delegate void DongTai(ChatListBox box,string json);
     public static class ProcessingCenter
     {
 
@@ -23,8 +24,9 @@ namespace Client
         /// </summary>
         private static bool mainF = false;
         public static bool MainF { get { return mainF; } set { mainF = value; } }
-        public static bool kongzhi=true ;
-        public static bool Kongzhi { get { return kongzhi; }set { kongzhi = value; } }
+        public static bool kongzhi = true;
+        public static bool Kongzhi { get { return kongzhi; } set { kongzhi = value; } }
+        public static ChatListBox agent { get; set; }
 
         /// <summary>
         /// 控制 登录 和 消息的委托
@@ -103,7 +105,7 @@ namespace Client
         /// <param 接受到的消息="json"></param>
         public static void JodgeType(string json)
         {
-            Debug.Print("接受到的总消息"+json);
+            Debug.Print("接受到的总消息" + json);
             switch (GetType(json)[0])
             {
                 case "L":
@@ -111,7 +113,7 @@ namespace Client
                     adoptL(json);
                     if (GetType(json)[1] == "true")
                     {
-                        if (GetType(json)[2] != null)   
+                        if (GetType(json)[2] != null)
                         {
                             Debug.Print(GetType(json)[2]);
                             while (kongzhi) ;
@@ -168,7 +170,7 @@ namespace Client
         /// <param 组名="gourpName"></param>
         /// <param 该组的每个成员="information"></param>
         /// <returns>information 包含的是{组名,成员账号,成员昵称,成员签名}的集合</returns>
-        public static ChatListItem DropGourp(string gourpName,List<string[]> information)
+        public static ChatListItem DropGourp(string gourpName, List<string[]> information)
         {
             Random rnd = new Random();
             ChatListItem item = new ChatListItem(gourpName);
@@ -180,12 +182,86 @@ namespace Client
                 item.SubItems.AddAccordingToStatus(subItem);
             }
 
-         //   item.SubItems.Sort();
+            //   item.SubItems.Sort();
             return item;
         }
 
-     
-            
+        /// <summary>
+        ///读取文档 
+        /// </summary>
+        /// <returns>返回文档所有的信息</returns>
+        public static string[] Read()
+        {
+            int J = 0;
+            int N = 0;
+            string[] strs2 = File.ReadAllLines(@"ReChat.txt", Encoding.UTF8);
+            foreach (var i in strs2)
+            {
+                if (i == ""){   J++; }
+            }
+            string[] strs1 = new string[strs2.Length-J];
+            foreach (var item in strs2)
+            {
+                if (item!="")
+                {
+                    strs1[N] = item;
+                    N++;
+                }
+            }
+            return strs1 ;
+        }
+        
+        /// <summary>
+        /// 向文档写入一条数据
+        /// </summary>
+        /// <param 添加的数据="a"></param>
+        public static void Write(string a)
+        {
+            string[] c = new string[Read().Length + 1];
+            c = Read();
+            c[c.Length - 1] = a;
+            File.WriteAllLines(@"ReChat.txt", c, Encoding.UTF8);
+        }
+
+        /// <summary>
+        /// 删除一条数据
+        /// </summary>
+        /// <param name="a"></param>
+        public static void Delegt(string a)
+        {
+            string[] read = Read();
+            for (int i = 0; i < read.Length; i++)
+            {
+                if (read[i] == a)
+                {
+                    read[i] = "";
+                }
+            }
+            File.WriteAllLines(@"ReChat.txt", read, Encoding.UTF8);
+
+        }
+
+        /// <summary>
+        /// 当发生点击点击事件的时候  查询当前是否发生数据 并删除同步
+        /// </summary>
+        /// <param name="clic"></param>
+        /// <returns></returns>
+        public static string[] ClikRm(string clic)
+        {
+            string[] test= Read();
+            for (int i = 0; i < test.Length; i++)
+            {
+                Debug.Print(test[i]);
+                if (GetType(test[i])[1] == clic)
+                {
+                    Delegt(test[i]);
+                    return GetType(test[i]);
+                }
+            }
+            return null;
+        }
+
+
 
 
 

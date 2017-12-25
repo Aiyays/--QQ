@@ -48,7 +48,7 @@ namespace Client
             if (txtSend.Text!="")
             {
                 ProcessingCenter.SendMessage(userId, friendId, txtSend.Text);
-                txtShow.AppendText(DateTime.Now+"  "+userName+":"+txtSend.Text+"\n");
+                txtShow.AppendText(DateTime.Now+userName+":"+txtSend.Text+"\n");
             }
         }
 
@@ -58,11 +58,16 @@ namespace Client
         /// <param 收到的消息="json"></param>
         private void Recieve(string json)
         {
-            txtShow.AppendText(DateTime.Now+"  "+friendName+":"+ ProcessingCenter.GetType(json)[2]);
+            txtShow.AppendText(DateTime.Now+friendName+":"+ ProcessingCenter.GetType(json)[2]);
         }
 
        
         private void btnSend_Click(object sender, EventArgs e){  SendMessage(); }
+
+        public void Send(string[] a )
+        {
+            txtShow.AppendText(DateTime.Now + a[0] + ":" + a[1] + "\n");
+        }
 
     }
 }

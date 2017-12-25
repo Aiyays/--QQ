@@ -18,7 +18,6 @@ namespace Client
         #region  背景
         public Land()
         {
-            
             InitializeComponent();
             ProcessingCenter.MainF = false;
             ClsoeT = new AdoptType(_close);
