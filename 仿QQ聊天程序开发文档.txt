@@ -26,14 +26,15 @@
 		
 		
 		
-三 数据库
+三 建立在服务端的数据库----库名--->Graduationdesign
 	1.表一 注册表  表名-->information 
 		[1]id int not null  Primary key
 		[2]Name char(20) not null
 		[3]passworld	char(20) not null 
 		[4]Registration datetime not null
-			
-	2.表二 端口表->发信息时取端口号 表名-->port
+	
+	
+	2.表二 端口表->发信息时取端口号 表名-->port------------》直接建立了一个Socket集合  完美的解决了此问题 不需要麻烦的存删数据库
 		[1]id int not null Primary key
 		[2]port char(12) not null 
 		[3]time datetime not null
@@ -49,7 +50,7 @@
 		[2]FriendID int not null 
 		[3]chatrecord char not null 
 		[4]time detatime not null
-	5.表五 记住密码
+	5.表五 记住密码----RemenberPd
 		[o]nub int not null  Primary Key
 		[1]Userid int not null 
 		[2]ConputerName char not null
@@ -63,7 +64,7 @@ Winform界面
 服务端与客户端通信协议
 	客户端发送给服务端	
 		string[5]-->5层	传送格式
-			string[0]--->接受到的消息的类型“L”-->登录消息       接受到的消息的类型“M”-->发送的消息         		接受到的消息的类型“R”--->注册的信息
+			string[0]--->接受到的消息的类型“L”-->登录消息       接受到的消息的类型“M”-->发送的消息         		接受到的消息的类型“R”--->注册的信息		
 			string[1]--->若string[0]="L"	  -->登录的账号   	若string[0]=“M”      --->要发送的账号  	   		若string[0]=“R”		 --->注册的账号
 			string[2]--->若String[0]="L"      -->登录的密码 	若string[0]=“M”      --->发送消息的对象的账号 	若string[0]=“R”		 --->注册的昵称
 			string[3]--->若string[0]="L"      -->是否记住密码 	若string[0]=“M”      --->要发送的消息 		 	若string[0]=“R”		 --->注册的密码				
@@ -111,11 +112,11 @@ Winform界面
 
 	 ["L","true","YCF-YourName"]
 	  
-	["L","true","[[\"张\",\"王\",\"李\",\"赵\",\"孙\"],[\"123456\",\"王舒婷\",\"对未来的憧憬从未停歇\"],[\"张\",\"39821\",\"张熙贤\",\"强无敌\"],[\"张\",\"75321\",\"张熙贤\",\"强无敌\"],[\"李\",\"32451\",\"张熙贤\",\"强无敌\"],[\"赵\",\"32132\",\"张熙贤\",\"强无敌\"],[\"张\",\"31221\",\"张熙贤\",\"强无敌\"]]"]
+	["L","true","[[\"张\",\"王\",\"李\",\"赵\",\"孙\"],[\"123456\",\"王舒婷\",\"对未来的憧憬从未停歇\"],[\"张\",\"39821\",\"张熙贤\",\"强无敌\"],[\"张\",\"75321\",\"张熙贤\",\"强无敌\"],[\"李\",\"32451\",\"张熙贤\",\"强无敌\"],[\"赵\",\"32132\",\"张熙贤\",\"强无敌\"],[\"张\",\"31221\",\"张熙贤\",\"强无敌\"]]"]----初始化界面
 	
-	["M","39821","[\"张熙贤\",\"张熙贤几顿饭克里斯多夫\"]"]
+	["M","32451","[\"张熙贤\",\"顿饭克里斯多夫\"]"]----》接收到消息的案列
 	
-		["M","39821","szhs hasdn zklhq c asf "]
+
 	     MyNub.Text = myinformation[0];
             MyName.Text = myinformation[1];
             MyAutograph.Text = myinformation[3];

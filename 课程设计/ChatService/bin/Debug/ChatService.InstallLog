@@ -11,3 +11,29 @@ Affected parameters are:
    logtoconsole = 
    logfile = G:\课程设计2\课程设计\ChatService\bin\Debug\ChatService.InstallLog
    assemblypath = G:\课程设计2\课程设计\ChatService\bin\Debug\ChatService.exe
+Installing assembly 'F:\oujij\--QQ\课程设计\ChatService\bin\Debug\ChatService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = F:\oujij\--QQ\课程设计\ChatService\bin\Debug\ChatService.InstallLog
+   assemblypath = F:\oujij\--QQ\课程设计\ChatService\bin\Debug\ChatService.exe
+Installing service ChatService...
+Creating EventLog source ChatService in log Application...
+Rolling back assembly 'F:\oujij\--QQ\课程设计\ChatService\bin\Debug\ChatService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = F:\oujij\--QQ\课程设计\ChatService\bin\Debug\ChatService.InstallLog
+   assemblypath = F:\oujij\--QQ\课程设计\ChatService\bin\Debug\ChatService.exe
+Restoring event log to previous state for source ChatService.
+Installing assembly 'F:\oujij\--QQ\课程设计\ChatService\bin\Debug\ChatService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = F:\oujij\--QQ\课程设计\ChatService\bin\Debug\ChatService.InstallLog
+   assemblypath = F:\oujij\--QQ\课程设计\ChatService\bin\Debug\ChatService.exe
+Installing service ChatService...
+Service ChatService has been successfully installed.
+Creating EventLog source ChatService in log Application...
+Committing assembly 'F:\oujij\--QQ\课程设计\ChatService\bin\Debug\ChatService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = F:\oujij\--QQ\课程设计\ChatService\bin\Debug\ChatService.InstallLog
+   assemblypath = F:\oujij\--QQ\课程设计\ChatService\bin\Debug\ChatService.exe

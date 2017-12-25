@@ -10,8 +10,15 @@ using System.Net.Sockets;
 
 namespace ChatService
 {
+    public delegate void Adpot(string json);
     public static class PushFuction
     {
+        #region 委托
+        public static Adpot HandleL;
+        public static Adpot HandleM;
+
+        #endregion
+
         #region 传送信息统一格式
         /// <summary>
         /// 将一个对象生成josn字符串
@@ -81,6 +88,9 @@ namespace ChatService
                     case "M":
 
                         break;
+                    case "R":
+
+                        break;
 
                 }
             }
@@ -112,7 +122,32 @@ namespace ChatService
                 SocketServer.Send(soc, GetJson("L", "false", null, null, null));
             }
            
-        }
+         }
+
+
+        #region 注册
+
+        #endregion
+
+        #region 登录
+
+        #endregion
+
+        #region 推送消息
+
+        #endregion
+
+        #region 监听下线
+
+        #endregion
+
+        #region 上线下线
+
+        #endregion
+
+
+
+
 
 
     }

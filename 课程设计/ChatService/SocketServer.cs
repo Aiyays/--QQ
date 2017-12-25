@@ -5,6 +5,7 @@ using System.Text;
 using System.Net.Sockets;
 using System.Net;
 using System.Threading;
+using System.Diagnostics;
 
 namespace ChatService
 {
@@ -15,17 +16,17 @@ namespace ChatService
         static Socket serverSocket;
 
 
+        /// <summary>
+        /// 开启一个Socket服务
+        /// </summary>
         public static void start()
         {
-            //服务器IP地址
+            
             IPAddress ip = IPAddress.Parse("192.168.0.100");
             serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            serverSocket.Bind(new IPEndPoint(ip, myProt));  //绑定IP地址：端口
-            serverSocket.Listen(10);    //设定最多10个排队连接请求\
-
-             
+            serverSocket.Bind(new IPEndPoint(ip, myProt));  
+            serverSocket.Listen(10);    
             Console.WriteLine("启动监听{0}成功", serverSocket.LocalEndPoint.ToString());
-            //通过Clientsoket发送数据
             Thread myThread = new Thread(ListenClientConnect);
             myThread.Start();
             Console.ReadLine();
@@ -41,7 +42,6 @@ namespace ChatService
             {
                 Socket clientSocket = serverSocket.Accept();
                 clientSocket.Send(Encoding.ASCII.GetBytes("Server Say Hello"));
-                
                 Thread receiveThread = new Thread(ReceiveMessage);
                 receiveThread.Start(clientSocket);
             }
@@ -58,21 +58,14 @@ namespace ChatService
             {
                 try
                 {
-                    //通过clientSocket接收数据
                     int receiveNumber = myClientSocket.Receive(result);
-                    Console.WriteLine("接收客户端{0}消息{1}", myClientSocket.RemoteEndPoint.ToString(), Encoding.ASCII.GetString(result, 0, receiveNumber));
-                    SocketPool.Add(myClientSocket);
-                    string accept = "已接受到消息";
-                    byte[] data = System.Text.Encoding.Default.GetBytes(accept);
-                    myClientSocket.BeginSend(data, 0, data.Length, SocketFlags.None, AsynCallBack, myClientSocket);
-                    Send(myClientSocket,accept);
-
-
+                    Debug.WriteLine("接收客户端{0}消息{1}", myClientSocket.RemoteEndPoint.ToString(), Encoding.ASCII.GetString(result, 0, receiveNumber));
+                    PushFuction.AdoptType(myClientSocket.RemoteEndPoint.ToString());
                 }
                 catch (Exception ex)
                 {
-                 //   Console.WriteLine(ex.Message);
-                    Console.WriteLine("客户端{0}已经断开", myClientSocket.RemoteEndPoint.ToString());
+                    Debug.WriteLine(ex.Message);
+                    Debug.WriteLine("客户端{0}已经断开", myClientSocket.RemoteEndPoint.ToString());
                     myClientSocket.Shutdown(SocketShutdown.Both);
                     myClientSocket.Close();
                     break;
@@ -113,9 +106,7 @@ namespace ChatService
                     sock.EndSend(result);
                 }
             }
-            catch
-            {
-            }
+            catch{}
         }
 
 

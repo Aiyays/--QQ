@@ -64,6 +64,10 @@ namespace Client
        
         private void btnSend_Click(object sender, EventArgs e){  SendMessage(); }
 
+        /// <summary>
+        /// 将接收到的消息推送到显示界面
+        /// </summary>
+        /// <param name="a"></param>
         public void Send(string[] a )
         {
             txtShow.AppendText(DateTime.Now + a[0] + ":" + a[1] + "\n");

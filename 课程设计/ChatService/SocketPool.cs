@@ -8,10 +8,15 @@ namespace ChatService
 {
      public static  class SocketPool
     {
+        
         /// <summary>
         /// 创建一个对象池
         /// </summary>
         private static List<Socket> socketpool=new List<Socket>();
+
+        /// <summary>
+        /// 一个私有化的线程池
+        /// </summary>
         public static List<Socket> Socketpool
         {
             get
@@ -19,17 +24,16 @@ namespace ChatService
                 return socketpool;   
             }
         }
-
-        public static List<string> nubpool = new List<string>();
+        
+        /// <summary>
+        /// 创建的连接号码池
+        /// </summary>
+        private static List<string> nubpool = new List<string>();
 
         /// <summary>
-        /// 当前连接对象池
+        /// 创建的
         /// </summary>
-        public static List<Socket> portpool=new List<Socket>();
-
-        /// <summary>
-        /// 初始化对象池
-        /// </summary>
+        public static List<string> Nubpool { get { return nubpool; } }  
 
 
         /// <summary>
@@ -49,10 +53,11 @@ namespace ChatService
         /// </summary>
         /// <param 连接的对象="sock"></param>
         /// <param 连接的号="Nub"></param>
-        public static void RemoveNub(Socket sock,string Nub)
+        public static void RemoveNub(Socket sock)
         {
+            int  i =Socketpool.IndexOf(sock);
             Socketpool.Remove(sock);
-            nubpool.Remove(Nub);
+            nubpool.RemoveAt(i);
         }
        
         /// <summary>
@@ -64,16 +69,15 @@ namespace ChatService
             return nubpool;
         }
 
-
-        public static void Add(Socket sock)
+        /// <summary>
+        /// 根据号码查找登录的socket
+        /// </summary>
+        /// <param 号码="nub"></param>
+        /// <returns></returns>
+        public static Socket GetSocket(string nub)
         {
-            portpool.Add(sock);
-        }
-
-
-        public static void Remove(Socket sock)
-        {
-            portpool.Remove(sock);
+            int i = Nubpool.IndexOf(nub);
+            return Socketpool[i];
         }
 
 

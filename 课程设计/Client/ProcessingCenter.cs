@@ -182,7 +182,7 @@ namespace Client
                 item.SubItems.AddAccordingToStatus(subItem);
             }
 
-            //   item.SubItems.Sort();
+                item.SubItems.Sort();
             return item;
         }
 

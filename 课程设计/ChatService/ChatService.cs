@@ -19,6 +19,7 @@ namespace ChatService
 
         protected override void OnStart(string[] args)
         {
+            SocketServer.start();
         }
 
         protected override void OnStop()

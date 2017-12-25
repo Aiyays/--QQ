@@ -158,7 +158,7 @@ namespace ChatService
             if (screen == null)
             {
                 if (LimitiList == null)
-                {
+                {  
                     return CommonS("select " + returnData + "  from " + tableName);
                 }
                 else

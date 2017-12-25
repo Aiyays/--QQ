@@ -37,10 +37,10 @@
             // btnSend
             // 
             this.btnSend.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnSend.Location = new System.Drawing.Point(492, 383);
+            this.btnSend.Location = new System.Drawing.Point(478, 374);
             this.btnSend.Margin = new System.Windows.Forms.Padding(4);
             this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(115, 40);
+            this.btnSend.Size = new System.Drawing.Size(129, 40);
             this.btnSend.TabIndex = 0;
             this.btnSend.Text = "发送";
             this.btnSend.UseVisualStyleBackColor = true;
@@ -49,7 +49,7 @@
             // txtSend
             // 
             this.txtSend.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtSend.Location = new System.Drawing.Point(1, 383);
+            this.txtSend.Location = new System.Drawing.Point(1, 374);
             this.txtSend.Margin = new System.Windows.Forms.Padding(4);
             this.txtSend.Multiline = true;
             this.txtSend.Name = "txtSend";
@@ -65,7 +65,7 @@
             this.txtShow.Multiline = true;
             this.txtShow.Name = "txtShow";
             this.txtShow.ReadOnly = true;
-            this.txtShow.Size = new System.Drawing.Size(606, 363);
+            this.txtShow.Size = new System.Drawing.Size(606, 374);
             this.txtShow.TabIndex = 2;
             // 
             // ChatForm
@@ -73,7 +73,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(608, 427);
+            this.ClientSize = new System.Drawing.Size(608, 416);
             this.Controls.Add(this.txtShow);
             this.Controls.Add(this.txtSend);
             this.Controls.Add(this.btnSend);
