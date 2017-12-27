@@ -22,15 +22,15 @@ namespace Client
         /// </summary>
         public static void Start()
         {
-            IPAddress ip = IPAddress.Parse("127.0.0.1");
+            IPAddress ip = IPAddress.Parse("192.168.0.100");
             try
             {
                 clientSocket.Connect(new IPEndPoint(ip, 10000)); //配置服务器IP与端口
                 Debug.Print("连接服务器成功");
-                Task Recv = new Task(() =>{
+                 new Task(() =>{
                     Recevice();
-                });
-                Recv.Start();
+                }).Start();
+                
 
             }
             catch

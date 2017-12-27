@@ -14,8 +14,10 @@ namespace ChatService
     public static class PushFuction
     {
         #region 委托
-        public static Adpot HandleL;
-        public static Adpot HandleM;
+        public   static Adpot HandleL;
+        public   static Adpot HandleM;
+        
+
 
         #endregion
 
@@ -101,29 +103,31 @@ namespace ChatService
         }
 
         /// <summary>
-        /// 判断是否登录 并且向客户端发送消息
+        /// 服务器接受到消息的处理中心
         /// </summary>
-        /// <param 对象="soc"></param>
-        /// <param 接受到的json="a"></param>
-        public static void AdoptLand(Socket soc,string a)
+        /// <param 接收到的消息="json"></param>
+        public static void AdoptCenter(Socket s,string json)
         {
-            OperatingDatabase.OpenMysql();
-            List<string[]> choice = OperatingDatabase.Select("*","","","","");
-            
-            if (choice[0][1] == GetType(a)[1] && choice[0][2] == GetType(a)[2])
+            switch (GetType(json)[0])
             {
-                Debug.Print("判断登录");
-                SocketPool.AddNub(soc, GetType(a)[1]);
-                SocketServer.Send(soc, GetJson("L", "true", null,null,null));
+                case "L":
+                    Debug.Print("接受到登录请求处理信息");
+                    AdoptLand(s,json);
+                    break;
+                case "R":
+                    Debug.Print("接受到注册请求处理信息");
+                    //这里差一个接受注册的方法
+                    break;
+                case "M":
+                    Debug.Print("接受到消息时触发该指令");
+                    ///这里差一个接受到消息的方法
+                    break;
+                default:
+                    Debug.Print("接收到非法错误指令时，不予处理");
+                    break;
+                
             }
-            else
-            {
-                Debug.Print("登录失败");
-                SocketServer.Send(soc, GetJson("L", "false", null, null, null));
-            }
-           
-         }
-
+        }
 
         #region 注册
 
@@ -131,15 +135,103 @@ namespace ChatService
 
         #region 登录
 
+        /// <summary>
+        /// 判断是否登录 并且向客户端发送消息
+        /// </summary>
+        /// <param 对象="soc"></param>
+        /// <param 接受到的json="a"></param>
+        public static void AdoptLand(Socket soc, string json)
+        {
+            bool a=false;
+            Debug.Print(OperatingDatabase.Select("*", "information", null, null, null).ToString());
+          
+            foreach (var i in OperatingDatabase.Select("*", "information", null, null, null))
+            {
+                Debug.Print("进入查询循环");
+                if(i[0] == GetType(json)[1] && i[2] == GetType(json)[2])
+                {
+                    a = true;
+                    break;
+                }
+                else
+                {
+                    a = false;
+                }
+            }
+            SocketServer.Send(soc, GetJson("L", a.ToString(), ObjectToJson(AdpotFriend(GetType(json)[1])), null, null));
+            SocketPool.AddNub(soc, GetType(json)[1]);
+        }
+        
+        /// <summary>
+        ///好友和自己的信息 
+        /// </summary>
+        /// <param 自己ID="userId"></param>
+        /// <returns></returns>
+        public static List<string[]>  AdpotFriend(string userId )
+        {
+            
+            List<string[]> list= OperatingDatabase.Select("friendid,item","friend","userid='"+userId+"'",null,null);
+            string[] item = new string[list.Count];
+            for (int i = 0; i < list.Count; i++) { item[i] = list[i][1]; }
+            item = DelRepeatData(item);
+            Debug.Print(userId);
+            string[] myInfmt = Information(userId);
+            List<string[]> rte = new List<string[]>();
+            rte.Add(item);
+            rte.Add(myInfmt);
+            foreach (var d in list)
+            {
+                rte.Add(Friendster(d[0], d[1]));
+            }
+            return rte;
+             
+        }
+
+        /// <summary>
+        /// 好友信息
+        /// </summary>
+        /// <param 好友id="friendId"></param>
+        /// <param 好友分组="item"></param>
+        /// <returns>分组，好友id ，好友昵称，好友签名</returns>
+        public static string[] Friendster(string friendId,string item)
+        {
+           return new string[] { item,friendId,Information(friendId)[1], Information(friendId)[2] };       
+        }
+
+        /// <summary>
+        /// 剔除数组中相同的数的Linq方法
+        /// </summary>
+        /// <param 传入的数组="a"></param>
+        /// <returns>剔除相同的数的方法</returns>
+        public static string[] DelRepeatData(string[] a)
+        {
+            return a.GroupBy(p => p).Select(p => p.Key).ToArray();
+        }
+
+        /// <summary>
+        /// 查询自己的信息
+        /// </summary>
+        /// <param 查询人的id="id"></param>
+        /// <returns>返回id，昵称和签名</returns>
+        public static string[] Information(string id)
+        {
+            try
+            {
+                return OperatingDatabase.Select("id,name,autograph", "information", "id='" + id + "'", null, null)[0];
+
+            }
+            catch
+            {
+                Debug.Print("查找出现异常");
+                return null;
+            }
+        }
         #endregion
 
         #region 推送消息
 
         #endregion
 
-        #region 监听下线
-
-        #endregion
 
         #region 上线下线
 

@@ -111,7 +111,7 @@ namespace Client
                 case "L":
                     Debug.Print("接受到的登陆的信息");
                     adoptL(json);
-                    if (GetType(json)[1] == "true")
+                    if (GetType(json)[1] == "True")
                     {
                         if (GetType(json)[2] != null)
                         {

@@ -6,6 +6,7 @@ using System.Net.Sockets;
 using System.Net;
 using System.Threading;
 using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace ChatService
 {
@@ -41,7 +42,7 @@ namespace ChatService
             while (true)
             {
                 Socket clientSocket = serverSocket.Accept();
-                clientSocket.Send(Encoding.ASCII.GetBytes("Server Say Hello"));
+                //clientSocket.Send(Encoding.ASCII.GetBytes("Server Say Hello"));
                 Thread receiveThread = new Thread(ReceiveMessage);
                 receiveThread.Start(clientSocket);
             }
@@ -58,14 +59,18 @@ namespace ChatService
             {
                 try
                 {
-                    int receiveNumber = myClientSocket.Receive(result);
-                    Debug.WriteLine("接收客户端{0}消息{1}", myClientSocket.RemoteEndPoint.ToString(), Encoding.ASCII.GetString(result, 0, receiveNumber));
-                    PushFuction.AdoptType(myClientSocket.RemoteEndPoint.ToString());
+                  // new Task(() => 
+                   // {
+                        int receiveNumber = myClientSocket.Receive(result);
+                        Debug.WriteLine("接收客户端{0}消息{1}", myClientSocket.RemoteEndPoint.ToString(), Encoding.UTF8.GetString(result, 0, receiveNumber));
+                        PushFuction.AdoptCenter(myClientSocket, Encoding.GetEncoding("GB2312").GetString(result, 0, receiveNumber));
+                  //  }).Start();
+                   
                 }
-                catch (Exception ex)
+                catch 
                 {
-                    Debug.WriteLine(ex.Message);
-                    Debug.WriteLine("客户端{0}已经断开", myClientSocket.RemoteEndPoint.ToString());
+                  
+                    Debug.Print("客户端{0}已经断开", myClientSocket.RemoteEndPoint.ToString());
                     myClientSocket.Shutdown(SocketShutdown.Both);
                     myClientSocket.Close();
                     break;

@@ -123,7 +123,7 @@ namespace Client
         public void ReciveLand(string json)
         {
             Debug.Print(ProcessingCenter.GetType(json)[1]);
-            if (ProcessingCenter.GetType(json)[1] == "true")
+            if (ProcessingCenter.GetType(json)[1] == "True")
             {
                 MessageBox.Show("登录成功");
                 ProcessingCenter.MainF = true;
@@ -131,8 +131,9 @@ namespace Client
             }
             else
             {
-                MessageBox.Show("登录失败,密码或者账号错误");
                 this.Invoke(EnabledT);
+                MessageBox.Show("登录失败,密码或者账号错误");
+                
             }
         }
 
@@ -164,7 +165,7 @@ namespace Client
             {
                 ProcessingCenter.SendLand(txtUser.Text,txtPd.Text,BtnRember.Checked.ToString(), System.Net.Dns.GetHostName());
                 MessageBox.Show("登录中，请稍后");
-                this.Enabled = false;
+
 
 
             }

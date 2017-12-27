@@ -13,7 +13,31 @@ namespace 奥术大师
     {
         static void Main(string[] args)
         {
-            string[] a = new string[3];
+            
+            
+            SocketServer.start();
+
+            
+            Console.ReadLine();
+        }
+    }
+
+
+    /*
+     *    
+     *    foreach (var ite in PushFuction.Information("280588121"))
+                {
+                    Console.WriteLine(ite);
+                }
+     *    
+                 OperatingDatabase.OpenMysql();
+            ;
+            
+         */
+
+    /*
+     
+           string[] a = new string[3];
             string[] b = new string[2];
 
             a[0] = "M";
@@ -23,9 +47,7 @@ namespace 奥术大师
             a[2] = ProcessingCenter.ObjectToJson(b);
             Debug.Print(ProcessingCenter.ObjectToJson(a));
             Console.ReadLine();
-            
-        }
-    }
+         */
     /*
                  string[] a = new string[3];
             a[0] = "M";

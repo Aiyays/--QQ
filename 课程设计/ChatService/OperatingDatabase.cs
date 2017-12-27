@@ -8,7 +8,7 @@ using System.Diagnostics;
 
 namespace ChatService
 {
-    class OperatingDatabase
+    public  class OperatingDatabase
     {
         #region 初始化数据库
 
@@ -64,6 +64,7 @@ namespace ChatService
         private static void Common(string sql)
         {
             MySqlCommand mySqlCommand = getSqlCommand(sql, mysql);
+           
             try
             {
                 mySqlCommand.ExecuteReader();
@@ -82,6 +83,7 @@ namespace ChatService
         /// <returns></returns>
         private static List<string[]> CommonS(string sql)
         {
+            OperatingDatabase.OpenMysql();
             MySqlCommand mySqlCommand = getSqlCommand(sql, mysql);
             try
             {
@@ -158,7 +160,7 @@ namespace ChatService
             if (screen == null)
             {
                 if (LimitiList == null)
-                {  
+                {
                     return CommonS("select " + returnData + "  from " + tableName);
                 }
                 else
@@ -179,6 +181,7 @@ namespace ChatService
             {
                 if (LimitiList == null)
                 {
+                    Debug.Print("筛选");
                     return CommonS("select " + returnData + "  from " + tableName + " where " + screen);
                 }
                 else
@@ -219,11 +222,12 @@ namespace ChatService
                     {
                         tst[i] = reader.GetString(i);
 
-                        Debug.Print("执行了一次");
+                        Debug.Print("查询到"+reader.GetString(i));
                     }
                     ad.Add(tst);
                 }
                 Debug.Print("查询成功");
+                mysql.Dispose();
                 return ad;
             }
             catch
@@ -231,6 +235,7 @@ namespace ChatService
                 Debug.Print("执行查询操作出错");
                 return null;
             }
+            
         }
         #endregion
     }
