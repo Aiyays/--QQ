@@ -9,12 +9,20 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using _CUSTOM_CONTROLS;
 using System.Diagnostics;
+using System.Net.Sockets;
 
 namespace Client
 {
    
     public partial class MainForm : Form
     {
+        List<Socket> socketpool = new List<Socket>();
+        /// <summary>
+        /// 创建一个对象池
+        /// </summary>
+        public  static List<ChatForm> chatList = new List<ChatForm>();
+        public static List<string > nubList = new List<string >();
+        
         private string[] a;
 
         public MainForm()
@@ -52,17 +60,17 @@ namespace Client
         {
             ///e.SelectSubItem.DisplayName---->为好友昵称
             ///e.SelectSubItem.NicName ---->为好友账号
-            // MessageBox.Show(e.SelectSubItem.DisplayName+e.SelectSubItem.NicName);
+            /// MessageBox.Show(e.SelectSubItem.DisplayName+e.SelectSubItem.NicName);
             ChatForm a = new ChatForm(e.SelectSubItem.DisplayName, e.SelectSubItem.NicName, MyNub.Text, MyName.Text);
             a.Show();
             e.SelectSubItem.IsTwinkle = false;
             string[] ne= ProcessingCenter.ClikRm(e.SelectSubItem.NicName);
             if(ne!=null)
             {
-                a.Send(ProcessingCenter.GetType(ne[2]));
+                a.Send(ne);
             }
-
-
+            chatList.Add(a);
+            nubList.Add(e.SelectSubItem.NicName);
             //点击事件
         }
 
@@ -92,7 +100,7 @@ namespace Client
                 }
                 FriendList.Items.Add(ProcessingCenter.DropGourp(information[0][i], TemporaryStorage));
             }
-            Debug.Print(json);
+            Debug.Print("绘制好友列表"+json);
            
             //this.Invoke();
             FriendLis(FriendList);
@@ -135,7 +143,7 @@ namespace Client
         /// <param 界面="chatListBox1"></param>
         public  void Recevice( string json)
         {
-            Debug.Print("接受到一个信息");
+            Debug.Print("接受到一个信息"+json);
             string[] rece = ProcessingCenter.GetType(json);
             for (int i = 0; i < FriendList.Items.Count; i++)
             {
@@ -152,6 +160,15 @@ namespace Client
             }
         }
 
-        
+        /// <summary>
+        /// 根据号码查找登录的socket
+        /// </summary>
+        /// <param 号码="nub"></param>
+        /// <returns></returns>
+        public static ChatForm GetSocket(string nub)
+        {
+            int i = nubList.IndexOf(nub);
+            return chatList[i];
+        }
     }
 }

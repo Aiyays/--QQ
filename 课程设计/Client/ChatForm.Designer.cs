@@ -82,6 +82,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ChatForm";
             this.Text = "ChatForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ChatForm_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

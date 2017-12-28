@@ -138,7 +138,7 @@
             // 
             this.FriendList.BackColor = System.Drawing.Color.White;
             this.FriendList.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("FriendList.BackgroundImage")));
-            this.FriendList.Font = new System.Drawing.Font("新宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.FriendList.Font = new System.Drawing.Font("新宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.FriendList.ForeColor = System.Drawing.Color.Black;
             this.FriendList.ItemColor = System.Drawing.Color.LightYellow;
             this.FriendList.Location = new System.Drawing.Point(0, 173);

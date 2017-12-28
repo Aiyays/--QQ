@@ -14,7 +14,7 @@ namespace Client
     {
         #region 好友昵称  好友ID  用户ID
         string friendName;
-        string friendId;
+        public string friendId;
         string userId;
         string userName;        
         #endregion
@@ -70,8 +70,12 @@ namespace Client
         /// <param name="a"></param>
         public void Send(string[] a )
         {
-            txtShow.AppendText(DateTime.Now + a[0] + ":" + a[1] + "\n");
+            txtShow.AppendText(DateTime.Now + a[1] + ":" + a[2] + "\n");
         }
 
+        private void ChatForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            ChatPool.Remove(this);
+        }
     }
 }

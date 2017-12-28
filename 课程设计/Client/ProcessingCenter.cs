@@ -58,7 +58,7 @@ namespace Client
             byte[] dataBytes = new byte[stream.Length];
             stream.Position = 0;
             stream.Read(dataBytes, 0, (int)stream.Length);
-            return Encoding.UTF8.GetString(dataBytes);
+            return UTF8Encoding.UTF8.GetString(dataBytes);
         }
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace Client
         public static object JsonToObject(string jsonString, object obj)
         {
             DataContractJsonSerializer serializer = new DataContractJsonSerializer(obj.GetType());
-            MemoryStream mStream = new MemoryStream(Encoding.UTF8.GetBytes(jsonString));
+            MemoryStream mStream = new MemoryStream(UTF8Encoding.UTF8.GetBytes(jsonString));
             return serializer.ReadObject(mStream);
         }
 
@@ -105,7 +105,8 @@ namespace Client
         /// <param 接受到的消息="json"></param>
         public static void JodgeType(string json)
         {
-            Debug.Print("接受到的总消息" + json);
+            Debug.Print("客户端消息接受中心接收到消息" + json);
+            Debug.Print(GetType(json)[0]);
             switch (GetType(json)[0])
             {
                 case "L":
@@ -123,8 +124,21 @@ namespace Client
                     break;
 
                 case "M":
-                    Debug.Print("接受到聊天");
-                    adoptM(json);
+
+                    if (MainForm.nubList.Contains(GetType(json)[1]))
+                    {
+                        MainForm.GetSocket(GetType(json)[1]).Send(GetType(json)) ;
+                    }
+                    else
+                    {
+                        Write(json);
+                        Debug.Print("已将接受到的消息" + json + "写入文档");
+                        adoptM(json);
+                    }
+
+                    
+
+
 
                     break;
             }
@@ -150,6 +164,7 @@ namespace Client
         public static void SendMessage(string sendid, string Friendid, string message)
         {
             Connect.SendMessage(GetJson("M", sendid, Friendid, message, null));
+          
         }
 
         /// <summary>
@@ -194,7 +209,7 @@ namespace Client
         {
             int J = 0;
             int N = 0;
-            string[] strs2 = File.ReadAllLines(@"ReChat.txt", Encoding.UTF8);
+            string[] strs2 = File.ReadAllLines(@"ReChat.txt", UTF8Encoding.UTF8);
             foreach (var i in strs2)
             {
                 if (i == ""){   J++; }
@@ -217,10 +232,14 @@ namespace Client
         /// <param 添加的数据="a"></param>
         public static void Write(string a)
         {
-            string[] c = new string[Read().Length + 1];
-            c = Read();
-            c[c.Length - 1] = a;
-            File.WriteAllLines(@"ReChat.txt", c, Encoding.UTF8);
+            FileStream fs = new FileStream("ReChat.txt", FileMode.Create);
+            //获得字节数组
+            byte[] data = System.Text.UTF8Encoding.UTF8.GetBytes(a);
+            //开始写入
+            fs.Write(data, 0, data.Length);
+            //清空缓冲区、关闭流
+            fs.Flush();
+            fs.Close();
         }
 
         /// <summary>
@@ -232,30 +251,35 @@ namespace Client
             string[] read = Read();
             for (int i = 0; i < read.Length; i++)
             {
+             
                 if (read[i] == a)
                 {
                     read[i] = "";
                 }
             }
-            File.WriteAllLines(@"ReChat.txt", read, Encoding.UTF8);
+            File.WriteAllLines(@"ReChat.txt", read, UTF8Encoding.UTF8);
 
         }
 
         /// <summary>
         /// 当发生点击点击事件的时候  查询当前是否发生数据 并删除同步
         /// </summary>
-        /// <param name="clic"></param>
-        /// <returns></returns>
+        /// <param 查询的号码="clic"></param>
+        /// <returns>如果有好友发来消息，则返回</returns>
         public static string[] ClikRm(string clic)
         {
             string[] test= Read();
             for (int i = 0; i < test.Length; i++)
             {
-                Debug.Print(test[i]);
+                Debug.Print("查询到消息记录"+test[i]);
+                Debug.Print(test[i]+"和"+clic);
                 if (GetType(test[i])[1] == clic)
                 {
                     Delegt(test[i]);
+                    Debug.Print(test[i]);
                     return GetType(test[i]);
+
+
                 }
             }
             return null;

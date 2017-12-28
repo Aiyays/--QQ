@@ -35,7 +35,7 @@ namespace ChatService
             byte[] dataBytes = new byte[stream.Length];
             stream.Position = 0;
             stream.Read(dataBytes, 0, (int)stream.Length);
-            return Encoding.UTF8.GetString(dataBytes);
+            return UTF8Encoding.UTF8.GetString(dataBytes);
         }
 
         /// <summary>
@@ -47,7 +47,7 @@ namespace ChatService
         public static object JsonToObject(string jsonString, object obj)
         {
             DataContractJsonSerializer serializer = new DataContractJsonSerializer(obj.GetType());
-            MemoryStream mStream = new MemoryStream(Encoding.UTF8.GetBytes(jsonString));
+            MemoryStream mStream = new MemoryStream(UTF8Encoding.UTF8.GetBytes(jsonString));
             return serializer.ReadObject(mStream);
         }
 
@@ -74,33 +74,6 @@ namespace ChatService
         }
         #endregion
 
-        /// <summary>
-        /// 接受到的消息
-        /// </summary>
-        /// <param 接受到的json="a"></param>
-        public static void AdoptType(string a)
-        {
-            try
-            {
-                switch (GetType(a)[0])
-                {
-                    case "L":
-                        
-                        break;
-                    case "M":
-
-                        break;
-                    case "R":
-
-                        break;
-
-                }
-            }
-            catch
-            {
-                Debug.Print("接受到的数据"+a+"格式异常");
-            }
-        }
 
         /// <summary>
         /// 服务器接受到消息的处理中心
@@ -119,8 +92,9 @@ namespace ChatService
                     //这里差一个接受注册的方法
                     break;
                 case "M":
-                    Debug.Print("接受到消息时触发该指令");
-                    ///这里差一个接受到消息的方法
+                    Debug.Print("接受到消息时触发该指令"+json );
+
+                    AdoptPush(json);
                     break;
                 default:
                     Debug.Print("接收到非法错误指令时，不予处理");
@@ -229,11 +203,30 @@ namespace ChatService
         #endregion
 
         #region 推送消息
+        
+        /// <summary>
+        /// 当接到一条消息 
+        /// </summary>
+        /// <param 接收到发送给好友的消息="json"></param>
+        public static void AdoptPush(string json)
+        {
+            string[] msg = new string[3];
+            msg[0] = GetType(json)[0];
+            msg[1] = GetType(json)[1];
+            msg[2] = GetType(json)[3];
+            Debug.Print("发送给客户端"+ GetType(json)[2]+ ":"+ ObjectToJson(msg)+msg[2]);
+            SocketServer.Send(SectNub(GetType(json)[2]),ObjectToJson(msg));
+            Debug.Print("发送消息"+ ObjectToJson(msg));
+        }
 
+        public static Socket SectNub(string nub)
+        {
+            return  SocketPool.GetSocket(nub);
+        }
         #endregion
 
 
-        #region 上线下线
+        #region 修改资料
 
         #endregion
 

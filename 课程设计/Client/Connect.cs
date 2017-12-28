@@ -49,10 +49,10 @@ namespace Client
         {
             while (true)
             {
-                
-                string a = Encoding.GetEncoding("GB2312").GetString(result, 0, clientSocket.Receive(result));
+
+                string a = UTF8Encoding.UTF8.GetString(result, 0, clientSocket.Receive(result));
                 ProcessingCenter.JodgeType(a);
-                Debug.Print(a);
+                Debug.Print("客户端接收到消息"+a);
             }
         }
 
@@ -64,8 +64,6 @@ namespace Client
         {
             try
             {
-               
-
                 clientSocket.Send(UTF8Encoding.UTF8.GetBytes(message));
                 Debug.Print("发送消息成功");
             }

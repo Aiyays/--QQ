@@ -43,6 +43,7 @@ namespace ChatService
             {
                 Socket clientSocket = serverSocket.Accept();
                 //clientSocket.Send(Encoding.ASCII.GetBytes("Server Say Hello"));
+                Debug.Print(clientSocket.RemoteEndPoint.ToString()+"已连接");
                 Thread receiveThread = new Thread(ReceiveMessage);
                 receiveThread.Start(clientSocket);
             }
@@ -61,9 +62,10 @@ namespace ChatService
                 {
                   // new Task(() => 
                    // {
+
                         int receiveNumber = myClientSocket.Receive(result);
-                        Debug.WriteLine("接收客户端{0}消息{1}", myClientSocket.RemoteEndPoint.ToString(), Encoding.UTF8.GetString(result, 0, receiveNumber));
-                        PushFuction.AdoptCenter(myClientSocket, Encoding.GetEncoding("GB2312").GetString(result, 0, receiveNumber));
+                        Debug.WriteLine("接收客户端{0}消息{1}", myClientSocket.RemoteEndPoint.ToString(), UTF8Encoding.UTF8.GetString(result, 0, receiveNumber));
+                        PushFuction.AdoptCenter(myClientSocket, UTF8Encoding.UTF8.GetString(result, 0, receiveNumber));
                   //  }).Start();
                    
                 }
@@ -86,7 +88,7 @@ namespace ChatService
         public static void Send(Socket sock, string str)
         {
             string accept = str;
-            byte[] data = System.Text.Encoding.Default.GetBytes(accept);
+            byte[] data = System.Text.UTF8Encoding.UTF8.GetBytes(accept);
             try
             {
                 sock.BeginSend(data, 0, data.Length, SocketFlags.None, AsynCallBack, sock);

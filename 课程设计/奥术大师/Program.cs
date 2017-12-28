@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using ChatService;
 using Client;
 using System.Diagnostics;
+using System.IO;
 
 namespace 奥术大师
 {
@@ -13,13 +14,13 @@ namespace 奥术大师
     {
         static void Main(string[] args)
         {
-            
-            
-            SocketServer.start();
 
-            
+                    SocketServer.start();
+
+
             Console.ReadLine();
         }
+       
     }
 
 
