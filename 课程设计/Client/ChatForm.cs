@@ -12,6 +12,8 @@ namespace Client
 {
     public partial class ChatForm : Form
     {
+        public string[] GetV = new string[3];
+        
         #region 好友昵称  好友ID  用户ID
         string friendName;
         public string friendId;
@@ -48,18 +50,11 @@ namespace Client
             if (txtSend.Text!="")
             {
                 ProcessingCenter.SendMessage(userId, friendId, txtSend.Text);
-                txtShow.AppendText(DateTime.Now+userName+":"+txtSend.Text+"\n");
+                txtShow.AppendText(DateTime.Now+ "\n" );
+                txtShow.AppendText(userName + ":"+txtSend.Text + "\n");
             }
         }
 
-        /// <summary>
-        /// 接受到消息
-        /// </summary>
-        /// <param 收到的消息="json"></param>
-        private void Recieve(string json)
-        {
-            txtShow.AppendText(DateTime.Now+friendName+":"+ ProcessingCenter.GetType(json)[2]);
-        }
 
        
         private void btnSend_Click(object sender, EventArgs e){  SendMessage(); }
@@ -68,9 +63,10 @@ namespace Client
         /// 将接收到的消息推送到显示界面
         /// </summary>
         /// <param name="a"></param>
-        public void Send(string[] a )
+        public void Send()
         {
-            txtShow.AppendText(DateTime.Now + a[1] + ":" + a[2] + "\n");
+            txtShow.AppendText(DateTime.Now +  "\n");
+            txtShow.AppendText(friendName + ":" + GetV[2] + "\n");
         }
 
         private void ChatForm_FormClosed(object sender, FormClosedEventArgs e)

@@ -20,8 +20,8 @@ namespace Client
         /// <summary>
         /// 创建一个对象池
         /// </summary>
-        public  static List<ChatForm> chatList = new List<ChatForm>();
-        public static List<string > nubList = new List<string >();
+        public   List<ChatForm> chatList = new List<ChatForm>();
+        public  List<string > nubList = new List<string >();
         
         private string[] a;
 
@@ -32,7 +32,10 @@ namespace Client
             ProcessingCenter.Kongzhi = false;
             ProcessingCenter.ChageAdoptF = new Adoptf(FriendLis);
             ProcessingCenter.ChageAdoptM=new Adopt(Recevice);
-            
+            ProcessingCenter.chatPool = new CatPool(GetChatFrom);
+            ProcessingCenter.Jdage = new AdoptB(JudegEx);
+
+
         }
 
         private void MainForm_MouseDown(object sender, MouseEventArgs e)
@@ -58,20 +61,29 @@ namespace Client
         /// <param name="e"></param>
         private void FriendList_DoubleClickSubItem(object sender, _CUSTOM_CONTROLS._ChatListBox.ChatListEventArgs e)
         {
-            ///e.SelectSubItem.DisplayName---->为好友昵称
-            ///e.SelectSubItem.NicName ---->为好友账号
-            /// MessageBox.Show(e.SelectSubItem.DisplayName+e.SelectSubItem.NicName);
-            ChatForm a = new ChatForm(e.SelectSubItem.DisplayName, e.SelectSubItem.NicName, MyNub.Text, MyName.Text);
-            a.Show();
-            e.SelectSubItem.IsTwinkle = false;
-            string[] ne= ProcessingCenter.ClikRm(e.SelectSubItem.NicName);
-            if(ne!=null)
+            if (ProcessingCenter.Jdage(e.SelectSubItem.NicName))
             {
-                a.Send(ne);
+                MessageBox.Show("您已经打开了该界面" +
+                    "");
             }
-            chatList.Add(a);
-            nubList.Add(e.SelectSubItem.NicName);
-            //点击事件
+            else
+            {
+                ///e.SelectSubItem.DisplayName---->为好友昵称
+                ///e.SelectSubItem.NicName ---->为好友账号
+                /// MessageBox.Show(e.SelectSubItem.DisplayName+e.SelectSubItem.NicName);
+                ChatForm a = new ChatForm(e.SelectSubItem.DisplayName, e.SelectSubItem.NicName, MyNub.Text, MyName.Text);
+                a.Show();
+                e.SelectSubItem.IsTwinkle = false;
+                string[] ne = ProcessingCenter.ClikRm(e.SelectSubItem.NicName);
+                if (ne != null)
+                {
+                    a.GetV = ne;
+                    a.Send();
+                }
+                chatList.Add(a);
+                nubList.Add(e.SelectSubItem.NicName);
+                //点击事件
+            }
         }
 
         /// <summary>
@@ -161,14 +173,35 @@ namespace Client
         }
 
         /// <summary>
-        /// 根据号码查找登录的socket
+        /// 判断传入号码是否在窗口里存在
+        /// </summary>
+        /// <param name="nub"></param>
+        /// <returns></returns>
+        public  bool JudegEx(string nub)
+        {
+            return nubList.Contains(nub);
+        }
+
+        /// <summary>
+        /// 传消息的委托
+        /// </summary>
+        delegate void asda();
+        /// <summary>
+        /// 根据号码查找登录的socket     
         /// </summary>
         /// <param 号码="nub"></param>
         /// <returns></returns>
-        public static ChatForm GetSocket(string nub)
+        public void  GetChatFrom(string json)
         {
-            int i = nubList.IndexOf(nub);
-            return chatList[i];
+            int i = nubList.IndexOf(ProcessingCenter.GetType(json)[1]);
+            Debug.Print(i+"");
+            Debug.Print("");
+            chatList[i].GetV=ProcessingCenter.GetType(json);
+            asda a = new asda(chatList[i].Send);
+            this.Invoke(a);
+
         }
+
+
     }
 }

@@ -15,9 +15,11 @@ namespace Client
 {
     public delegate void Adopt(string m);
     public delegate void Adoptf(ChatListBox chatListBox);
-    public delegate void DongTai(ChatListBox box,string json);
+    public delegate void CatPool(string m);
+    public delegate bool AdoptB(string m);
     public static class ProcessingCenter
     {
+        #region 委托集合
 
         /// <summary>
         /// 控制是否显示主窗体
@@ -35,6 +37,8 @@ namespace Client
         private static Adopt adoptM;
         private static Adoptf adoptF;
         private static Adopt Adopt;
+        public static CatPool chatPool;
+        public static AdoptB Jdage;
 
         /// <summary>
         /// 对外控制委托代理的索引
@@ -43,6 +47,10 @@ namespace Client
         public static Adopt ChageAdoptM { get { return adoptM; } set { adoptM = value; } }
         public static Adoptf ChageAdoptF { get { return adoptF; } set { adoptF = value; } }
         public static Adopt ChageAdopt { get { return Adopt; } set { Adopt = value; } }
+        
+        
+        
+        #endregion
 
         #region 传送信息统一格式
         /// <summary>
@@ -125,9 +133,9 @@ namespace Client
 
                 case "M":
 
-                    if (MainForm.nubList.Contains(GetType(json)[1]))
+                    if (Jdage(GetType(json)[1]))
                     {
-                        MainForm.GetSocket(GetType(json)[1]).Send(GetType(json)) ;
+                        chatPool(json);
                     }
                     else
                     {
@@ -135,11 +143,6 @@ namespace Client
                         Debug.Print("已将接受到的消息" + json + "写入文档");
                         adoptM(json);
                     }
-
-                    
-
-
-
                     break;
             }
         }

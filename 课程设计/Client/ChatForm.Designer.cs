@@ -59,7 +59,7 @@
             // txtShow
             // 
             this.txtShow.BackColor = System.Drawing.Color.White;
-            this.txtShow.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtShow.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtShow.Location = new System.Drawing.Point(1, 0);
             this.txtShow.Margin = new System.Windows.Forms.Padding(4);
             this.txtShow.Multiline = true;
