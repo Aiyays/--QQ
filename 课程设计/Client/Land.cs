@@ -12,6 +12,7 @@ using System.Diagnostics;
 namespace Client
 {
     public delegate void AdoptType();
+    public delegate void Trigger(bool a);
     public partial class Land : LayeredForm
     {
         
@@ -106,6 +107,8 @@ namespace Client
         /// </summary>
         AdoptType ClsoeT;
         AdoptType EnabledT;
+        public static Trigger Adopt;
+        
 
         /// <summary>
         /// 注册界面
@@ -113,7 +116,9 @@ namespace Client
         private void btnregister_Click(object sender, EventArgs e)
         {
             Register register = new Register();
+            Adopt=new Trigger(register.rigger);
             register.ShowDialog();
+
         }
 
         /// <summary>

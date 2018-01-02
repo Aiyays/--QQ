@@ -144,6 +144,10 @@ namespace Client
                         adoptM(json);
                     }
                     break;
+
+                case "R":
+                    Register(json);
+                    break;
             }
         }
 
@@ -153,7 +157,7 @@ namespace Client
         /// <param 注册的账号="id"></param>
         /// <param 注册的昵称="name"></param>
         /// <param 注册的密码="passworld"></param>
-        public static void SendRegister(string id, string name, string passworld)
+        public static void SendRegister(string id, string name, string passworld,string oa)
         {
             Connect.SendMessage(GetJson("R", id, name, passworld, DateTime.Now.ToString()));
         }
@@ -213,7 +217,7 @@ namespace Client
             int J = 0;
             int N = 0;
             string[] strs2 = File.ReadAllLines(@"ReChat.txt", UTF8Encoding.UTF8);
-            foreach (var i in strs2)
+            foreach (var i in strs2) 
             {
                 if (i == ""){   J++; }
             }
@@ -288,8 +292,17 @@ namespace Client
             return null;
         }
 
-
-
+        /// <summary>
+        /// 注册
+        /// </summary>
+        /// <param 接受到的消息 Json="json"></param>
+        public static void Register(string json)
+        {
+            Land.Adopt(GetType(json)[1] == "True");
+            ///这里有一个 当接受到系统返回的注册 成功或者失败的提醒
+           
+        }
+            
 
 
     }

@@ -71,7 +71,14 @@ namespace Client
 
         private void ChatForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            ChatPool.Remove(this);
+           //
+        }
+
+        private string DelClose()
+        {
+
+
+            return null;
         }
     }
 }

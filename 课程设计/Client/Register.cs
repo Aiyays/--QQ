@@ -10,8 +10,11 @@ using LayeredSkin.Forms;
 
 namespace Client
 {
+    public delegate void RFeedBack();
     public partial class Register : LayeredForm
     {
+        public static RFeedBack Enab;
+        public static RFeedBack Clos;
         #region 定义的背景的基础变量
         Image Cloud = Image.FromFile("Images\\cloud.png");
         float cloudX = 0;
@@ -20,9 +23,12 @@ namespace Client
         bool RotationDirection = true;//是否为顺时针
         #endregion
 
+        #region 背景
         public Register()
         {
             InitializeComponent();
+            Enab = new RFeedBack(_Enabled);
+            Clos = new RFeedBack(_Close);
         }
 
         private void layeredButton1_Click(object sender, EventArgs e)
@@ -89,6 +95,9 @@ namespace Client
             GC.Collect();
         }
 
+
+        #endregion
+
         private void btnRegister_Click(object sender, EventArgs e)
         {
             if (Jodge())
@@ -97,18 +106,14 @@ namespace Client
                 {
                     try
                     {
-                        ProcessingCenter.SendRegister(txtUserID.Text, txtUserName.Text, txtSurePd.Text);
-                        MessageBox.Show("注册成功");
+                        ProcessingCenter.SendRegister(txtUserID.Text, txtUserName.Text, txtSurePd.Text, txtAutograph.Text);
+                        MessageBox.Show("注册中。。");
+                        Enabled = false;
                     }
                     catch
                     {
                         MessageBox.Show("注册失败，请检查网络连接");
                     }
-                    finally
-                    {
-                        this.Close();
-                    }
-                    
                 }
                 else
                 {
@@ -135,7 +140,37 @@ namespace Client
         /// <returns>如果所有都有输入 则返回true</returns>
         private bool Jodge()
         {
-            return txtSurePd.Text != "" && txtUserID.Text != "" && txtUserName.Text != "" && txtUSerPd.Text != "";
+            return txtSurePd.Text != "" && txtUserID.Text != "" && txtUserName.Text != "" && txtUSerPd.Text != ""&& txtAutograph.Text!="";
+        }
+
+        /// <summary>
+        /// 开启整个页面
+        /// </summary>
+        public void _Enabled()
+        {
+            this.Enabled = true;
+        }
+
+        /// <summary>
+        /// 关闭注册页面
+        /// </summary>
+        public void _Close()
+        {
+            this.Close();
+        }
+
+        public  void rigger(bool a)
+        {
+            if (a)
+            {
+                this.Invoke(Register.Enab);
+                MessageBox.Show("该账号已经被注册");
+            }
+            else
+            {
+                MessageBox.Show("注册成功");
+                this.Invoke(Register.Clos);
+            }
         }
     }
 }

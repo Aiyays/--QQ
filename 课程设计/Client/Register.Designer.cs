@@ -30,20 +30,22 @@ namespace Client
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Register));
-            System.Drawing.Imaging.ImageAttributes imageAttributes29 = new System.Drawing.Imaging.ImageAttributes();
-            System.Drawing.Imaging.ImageAttributes imageAttributes30 = new System.Drawing.Imaging.ImageAttributes();
-            System.Drawing.Imaging.ImageAttributes imageAttributes31 = new System.Drawing.Imaging.ImageAttributes();
-            System.Drawing.Imaging.ImageAttributes imageAttributes32 = new System.Drawing.Imaging.ImageAttributes();
-            System.Drawing.Imaging.ImageAttributes imageAttributes33 = new System.Drawing.Imaging.ImageAttributes();
-            System.Drawing.Imaging.ImageAttributes imageAttributes34 = new System.Drawing.Imaging.ImageAttributes();
-            System.Drawing.Imaging.ImageAttributes imageAttributes35 = new System.Drawing.Imaging.ImageAttributes();
-            System.Drawing.Imaging.ImageAttributes imageAttributes36 = new System.Drawing.Imaging.ImageAttributes();
-            System.Drawing.Imaging.ImageAttributes imageAttributes37 = new System.Drawing.Imaging.ImageAttributes();
-            System.Drawing.Imaging.ImageAttributes imageAttributes38 = new System.Drawing.Imaging.ImageAttributes();
-            System.Drawing.Imaging.ImageAttributes imageAttributes39 = new System.Drawing.Imaging.ImageAttributes();
-            System.Drawing.Imaging.ImageAttributes imageAttributes40 = new System.Drawing.Imaging.ImageAttributes();
-            System.Drawing.Imaging.ImageAttributes imageAttributes41 = new System.Drawing.Imaging.ImageAttributes();
-            System.Drawing.Imaging.ImageAttributes imageAttributes42 = new System.Drawing.Imaging.ImageAttributes();
+            System.Drawing.Imaging.ImageAttributes imageAttributes1 = new System.Drawing.Imaging.ImageAttributes();
+            System.Drawing.Imaging.ImageAttributes imageAttributes2 = new System.Drawing.Imaging.ImageAttributes();
+            System.Drawing.Imaging.ImageAttributes imageAttributes3 = new System.Drawing.Imaging.ImageAttributes();
+            System.Drawing.Imaging.ImageAttributes imageAttributes4 = new System.Drawing.Imaging.ImageAttributes();
+            System.Drawing.Imaging.ImageAttributes imageAttributes5 = new System.Drawing.Imaging.ImageAttributes();
+            System.Drawing.Imaging.ImageAttributes imageAttributes6 = new System.Drawing.Imaging.ImageAttributes();
+            System.Drawing.Imaging.ImageAttributes imageAttributes7 = new System.Drawing.Imaging.ImageAttributes();
+            System.Drawing.Imaging.ImageAttributes imageAttributes8 = new System.Drawing.Imaging.ImageAttributes();
+            System.Drawing.Imaging.ImageAttributes imageAttributes9 = new System.Drawing.Imaging.ImageAttributes();
+            System.Drawing.Imaging.ImageAttributes imageAttributes10 = new System.Drawing.Imaging.ImageAttributes();
+            System.Drawing.Imaging.ImageAttributes imageAttributes11 = new System.Drawing.Imaging.ImageAttributes();
+            System.Drawing.Imaging.ImageAttributes imageAttributes12 = new System.Drawing.Imaging.ImageAttributes();
+            System.Drawing.Imaging.ImageAttributes imageAttributes13 = new System.Drawing.Imaging.ImageAttributes();
+            System.Drawing.Imaging.ImageAttributes imageAttributes14 = new System.Drawing.Imaging.ImageAttributes();
+            System.Drawing.Imaging.ImageAttributes imageAttributes15 = new System.Drawing.Imaging.ImageAttributes();
+            System.Drawing.Imaging.ImageAttributes imageAttributes16 = new System.Drawing.Imaging.ImageAttributes();
             this.layeredPictureBox1 = new LayeredSkin.Controls.LayeredPictureBox();
             this.layeredPictureBox2 = new LayeredSkin.Controls.LayeredPictureBox();
             this.layeredButton1 = new LayeredSkin.Controls.LayeredButton();
@@ -59,6 +61,8 @@ namespace Client
             this.txtSurePd = new LayeredSkin.Controls.LayeredTextBox();
             this.txtUSerPd = new LayeredSkin.Controls.LayeredTextBox();
             this.btnRegister = new LayeredSkin.Controls.LayeredButton();
+            this.layeredLabel6 = new LayeredSkin.Controls.LayeredLabel();
+            this.txtAutograph = new LayeredSkin.Controls.LayeredTextBox();
             this.SuspendLayout();
             // 
             // layeredPictureBox1
@@ -66,7 +70,7 @@ namespace Client
             this.layeredPictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.layeredPictureBox1.Canvas = ((System.Drawing.Bitmap)(resources.GetObject("layeredPictureBox1.Canvas")));
             this.layeredPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("layeredPictureBox1.Image")));
-            this.layeredPictureBox1.ImageAttribute = imageAttributes29;
+            this.layeredPictureBox1.ImageAttribute = imageAttributes1;
             this.layeredPictureBox1.Images = new System.Drawing.Image[] {
         ((System.Drawing.Image)(((System.Drawing.Image)(resources.GetObject("layeredPictureBox1.Images")))))};
             this.layeredPictureBox1.Interval = 100;
@@ -83,7 +87,7 @@ namespace Client
             this.layeredPictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.layeredPictureBox2.Canvas = ((System.Drawing.Bitmap)(resources.GetObject("layeredPictureBox2.Canvas")));
             this.layeredPictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("layeredPictureBox2.Image")));
-            this.layeredPictureBox2.ImageAttribute = imageAttributes30;
+            this.layeredPictureBox2.ImageAttribute = imageAttributes2;
             this.layeredPictureBox2.Images = new System.Drawing.Image[] {
         ((System.Drawing.Image)(((System.Drawing.Image)(resources.GetObject("layeredPictureBox2.Images")))))};
             this.layeredPictureBox2.Interval = 100;
@@ -108,7 +112,7 @@ namespace Client
             this.layeredButton1.HaloColor = System.Drawing.Color.Black;
             this.layeredButton1.HaloSize = 5;
             this.layeredButton1.HoverImage = ((System.Drawing.Image)(resources.GetObject("layeredButton1.HoverImage")));
-            this.layeredButton1.ImageAttribute = imageAttributes31;
+            this.layeredButton1.ImageAttribute = imageAttributes3;
             this.layeredButton1.Location = new System.Drawing.Point(297, 12);
             this.layeredButton1.Name = "layeredButton1";
             this.layeredButton1.NormalImage = null;
@@ -133,7 +137,7 @@ namespace Client
             this.layeredButton2.HaloColor = System.Drawing.Color.Black;
             this.layeredButton2.HaloSize = 5;
             this.layeredButton2.HoverImage = ((System.Drawing.Image)(resources.GetObject("layeredButton2.HoverImage")));
-            this.layeredButton2.ImageAttribute = imageAttributes32;
+            this.layeredButton2.ImageAttribute = imageAttributes4;
             this.layeredButton2.Location = new System.Drawing.Point(325, 12);
             this.layeredButton2.Name = "layeredButton2";
             this.layeredButton2.NormalImage = null;
@@ -153,8 +157,8 @@ namespace Client
             this.txtUserID.Canvas = ((System.Drawing.Bitmap)(resources.GetObject("txtUserID.Canvas")));
             this.txtUserID.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtUserID.ForeColor = System.Drawing.Color.White;
-            this.txtUserID.ImageAttribute = imageAttributes33;
-            this.txtUserID.Location = new System.Drawing.Point(41, 91);
+            this.txtUserID.ImageAttribute = imageAttributes5;
+            this.txtUserID.Location = new System.Drawing.Point(41, 76);
             this.txtUserID.MaxLength = 12;
             this.txtUserID.Name = "txtUserID";
             this.txtUserID.Size = new System.Drawing.Size(254, 26);
@@ -173,8 +177,8 @@ namespace Client
             this.layeredLabel1.ForeColor = System.Drawing.Color.White;
             this.layeredLabel1.HaloColor = System.Drawing.Color.DimGray;
             this.layeredLabel1.HaloSize = 5;
-            this.layeredLabel1.ImageAttribute = imageAttributes34;
-            this.layeredLabel1.Location = new System.Drawing.Point(41, 66);
+            this.layeredLabel1.ImageAttribute = imageAttributes6;
+            this.layeredLabel1.Location = new System.Drawing.Point(41, 51);
             this.layeredLabel1.Name = "layeredLabel1";
             this.layeredLabel1.Size = new System.Drawing.Size(58, 23);
             this.layeredLabel1.TabIndex = 4;
@@ -188,8 +192,8 @@ namespace Client
             this.txtUserName.Canvas = ((System.Drawing.Bitmap)(resources.GetObject("txtUserName.Canvas")));
             this.txtUserName.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtUserName.ForeColor = System.Drawing.Color.White;
-            this.txtUserName.ImageAttribute = imageAttributes35;
-            this.txtUserName.Location = new System.Drawing.Point(41, 156);
+            this.txtUserName.ImageAttribute = imageAttributes7;
+            this.txtUserName.Location = new System.Drawing.Point(41, 135);
             this.txtUserName.MaxLength = 8;
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(254, 26);
@@ -207,8 +211,8 @@ namespace Client
             this.layeredLabel2.ForeColor = System.Drawing.Color.White;
             this.layeredLabel2.HaloColor = System.Drawing.Color.DimGray;
             this.layeredLabel2.HaloSize = 5;
-            this.layeredLabel2.ImageAttribute = imageAttributes36;
-            this.layeredLabel2.Location = new System.Drawing.Point(41, 131);
+            this.layeredLabel2.ImageAttribute = imageAttributes8;
+            this.layeredLabel2.Location = new System.Drawing.Point(41, 110);
             this.layeredLabel2.Name = "layeredLabel2";
             this.layeredLabel2.Size = new System.Drawing.Size(58, 23);
             this.layeredLabel2.TabIndex = 4;
@@ -223,7 +227,7 @@ namespace Client
             this.layeredLabel3.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.layeredLabel3.ForeColor = System.Drawing.Color.White;
             this.layeredLabel3.HaloSize = 5;
-            this.layeredLabel3.ImageAttribute = imageAttributes37;
+            this.layeredLabel3.ImageAttribute = imageAttributes9;
             this.layeredLabel3.Location = new System.Drawing.Point(12, 14);
             this.layeredLabel3.Name = "layeredLabel3";
             this.layeredLabel3.Size = new System.Drawing.Size(65, 20);
@@ -245,8 +249,8 @@ namespace Client
             this.layeredLabel4.ForeColor = System.Drawing.Color.White;
             this.layeredLabel4.HaloColor = System.Drawing.Color.DimGray;
             this.layeredLabel4.HaloSize = 5;
-            this.layeredLabel4.ImageAttribute = imageAttributes38;
-            this.layeredLabel4.Location = new System.Drawing.Point(41, 261);
+            this.layeredLabel4.ImageAttribute = imageAttributes10;
+            this.layeredLabel4.Location = new System.Drawing.Point(41, 284);
             this.layeredLabel4.Name = "layeredLabel4";
             this.layeredLabel4.Size = new System.Drawing.Size(58, 23);
             this.layeredLabel4.TabIndex = 9;
@@ -262,8 +266,8 @@ namespace Client
             this.layeredLabel5.ForeColor = System.Drawing.Color.White;
             this.layeredLabel5.HaloColor = System.Drawing.Color.DimGray;
             this.layeredLabel5.HaloSize = 5;
-            this.layeredLabel5.ImageAttribute = imageAttributes39;
-            this.layeredLabel5.Location = new System.Drawing.Point(41, 196);
+            this.layeredLabel5.ImageAttribute = imageAttributes11;
+            this.layeredLabel5.Location = new System.Drawing.Point(41, 227);
             this.layeredLabel5.Name = "layeredLabel5";
             this.layeredLabel5.Size = new System.Drawing.Size(58, 23);
             this.layeredLabel5.TabIndex = 10;
@@ -277,8 +281,8 @@ namespace Client
             this.txtSurePd.Canvas = ((System.Drawing.Bitmap)(resources.GetObject("txtSurePd.Canvas")));
             this.txtSurePd.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtSurePd.ForeColor = System.Drawing.Color.White;
-            this.txtSurePd.ImageAttribute = imageAttributes40;
-            this.txtSurePd.Location = new System.Drawing.Point(41, 286);
+            this.txtSurePd.ImageAttribute = imageAttributes12;
+            this.txtSurePd.Location = new System.Drawing.Point(41, 309);
             this.txtSurePd.MaxLength = 20;
             this.txtSurePd.Name = "txtSurePd";
             this.txtSurePd.PasswordChar = '●';
@@ -295,8 +299,8 @@ namespace Client
             this.txtUSerPd.Canvas = ((System.Drawing.Bitmap)(resources.GetObject("txtUSerPd.Canvas")));
             this.txtUSerPd.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtUSerPd.ForeColor = System.Drawing.Color.White;
-            this.txtUSerPd.ImageAttribute = imageAttributes41;
-            this.txtUSerPd.Location = new System.Drawing.Point(41, 221);
+            this.txtUSerPd.ImageAttribute = imageAttributes13;
+            this.txtUSerPd.Location = new System.Drawing.Point(41, 252);
             this.txtUSerPd.MaxLength = 20;
             this.txtUSerPd.Name = "txtUSerPd";
             this.txtUSerPd.PasswordChar = '●';
@@ -317,8 +321,8 @@ namespace Client
             this.btnRegister.HaloColor = System.Drawing.Color.Transparent;
             this.btnRegister.HaloSize = 5;
             this.btnRegister.HoverImage = null;
-            this.btnRegister.ImageAttribute = imageAttributes42;
-            this.btnRegister.Location = new System.Drawing.Point(107, 351);
+            this.btnRegister.ImageAttribute = imageAttributes14;
+            this.btnRegister.Location = new System.Drawing.Point(113, 360);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.NormalImage = null;
             this.btnRegister.PressedImage = null;
@@ -330,6 +334,40 @@ namespace Client
             this.btnRegister.TextShowMode = LayeredSkin.TextShowModes.Ordinary;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
+            // layeredLabel6
+            // 
+            this.layeredLabel6.AutoSize = true;
+            this.layeredLabel6.BackColor = System.Drawing.Color.Transparent;
+            this.layeredLabel6.Canvas = ((System.Drawing.Bitmap)(resources.GetObject("layeredLabel6.Canvas")));
+            this.layeredLabel6.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.layeredLabel6.ForeColor = System.Drawing.Color.White;
+            this.layeredLabel6.HaloColor = System.Drawing.Color.DimGray;
+            this.layeredLabel6.HaloSize = 5;
+            this.layeredLabel6.ImageAttribute = imageAttributes15;
+            this.layeredLabel6.Location = new System.Drawing.Point(41, 167);
+            this.layeredLabel6.Name = "layeredLabel6";
+            this.layeredLabel6.Size = new System.Drawing.Size(90, 23);
+            this.layeredLabel6.TabIndex = 12;
+            this.layeredLabel6.Text = "个性签名：";
+            this.layeredLabel6.TextRenderMode = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            // 
+            // txtAutograph
+            // 
+            this.txtAutograph.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtAutograph.BorderColor = System.Drawing.Color.Empty;
+            this.txtAutograph.Canvas = ((System.Drawing.Bitmap)(resources.GetObject("txtAutograph.Canvas")));
+            this.txtAutograph.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtAutograph.ForeColor = System.Drawing.Color.White;
+            this.txtAutograph.ImageAttribute = imageAttributes16;
+            this.txtAutograph.Location = new System.Drawing.Point(41, 192);
+            this.txtAutograph.MaxLength = 8;
+            this.txtAutograph.Name = "txtAutograph";
+            this.txtAutograph.Size = new System.Drawing.Size(254, 26);
+            this.txtAutograph.TabIndex = 11;
+            this.txtAutograph.TransparencyKey = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtAutograph.WaterFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtAutograph.WaterText = "";
+            // 
             // Register
             // 
             this.AnimationType = LayeredSkin.Forms.AnimationTypes.GradualCurtainEffect;
@@ -340,6 +378,8 @@ namespace Client
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.CaptionShowMode = LayeredSkin.TextShowModes.None;
             this.ClientSize = new System.Drawing.Size(348, 411);
+            this.Controls.Add(this.layeredLabel6);
+            this.Controls.Add(this.txtAutograph);
             this.Controls.Add(this.layeredLabel4);
             this.Controls.Add(this.layeredLabel5);
             this.Controls.Add(this.txtSurePd);
@@ -383,5 +423,7 @@ namespace Client
         private LayeredSkin.Controls.LayeredTextBox txtSurePd;
         private LayeredSkin.Controls.LayeredTextBox txtUSerPd;
         private LayeredSkin.Controls.LayeredButton btnRegister;
+        private LayeredSkin.Controls.LayeredLabel layeredLabel6;
+        private LayeredSkin.Controls.LayeredTextBox txtAutograph;
     }
 }

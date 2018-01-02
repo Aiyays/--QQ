@@ -89,7 +89,16 @@ namespace ChatService
                     break;
                 case "R":
                     Debug.Print("接受到注册请求处理信息");
-                    //这里差一个接受注册的方法
+                    if (Adopt(json))
+                    {
+                        ///当注册的消息准确的时候
+                        //SocketServer.Send(s,GetJson("R","False",null,null,null));
+                    }
+                    else
+                    {
+                      //  SocketServer.Send(s, GetJson("R", "True", null, null, null));
+                        ///当注册的消息不准确的时候
+                    }
                     break;
                 case "M":
                     Debug.Print("接受到消息时触发该指令"+json );
@@ -104,7 +113,19 @@ namespace ChatService
         }
 
         #region 注册
+        public static bool Adopt(string json)
+        {
+            List<string[]> a = OperatingDatabase.Select("id","information",null,null ,null);
+            foreach (var i in a)
+            {
+                if (i[0] == GetType(json)[1])
+                {
+                    return true;
+                }
+            }
 
+            return false;
+        }
         #endregion
 
         #region 登录
@@ -219,6 +240,11 @@ namespace ChatService
             Debug.Print("发送消息"+ ObjectToJson(msg));
         }
 
+        /// <summary>
+        /// 获取该号码的Socket
+        /// </summary>
+        /// <param name="nub"></param>
+        /// <returns></returns>
         public static Socket SectNub(string nub)
         {
             return  SocketPool.GetSocket(nub);

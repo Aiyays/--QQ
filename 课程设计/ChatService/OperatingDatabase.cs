@@ -63,6 +63,7 @@ namespace ChatService
         /// <param name="sql"></param>
         private static void Common(string sql)
         {
+            OperatingDatabase.OpenMysql();
             MySqlCommand mySqlCommand = getSqlCommand(sql, mysql);
            
             try
@@ -112,7 +113,35 @@ namespace ChatService
         public static void Insert(string table, string Date)
         {
             Common("insert into " + table + " set " + Date);
+            mysql.Dispose();
         }
+
+        /// <summary>
+        /// 注册information信息表
+        /// </summary>
+        /// <param 账号="id"></param>
+        /// <param 昵称="name"></param>
+        /// <param 密码="passworld"></param>
+        /// <param 时间="regi"></param>
+        /// <param 签名="autog"></param>
+        public static void InsertInformation(string id ,string name,string passworld,string regi,string autog)
+        {
+            Insert("information", "id='"+id+ "',name='"+name+ "',password='"+passworld+ "',registration='"+regi+ "',autograph='"+autog+"'");
+        }
+
+        /// <summary>
+        /// 注册Friend好友表
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="userid"></param>
+        /// <param name="friendid"></param>
+        /// <param name="item"></param>
+        public static void InsertFriend(string userid,string friendid  ,string item)
+        {
+            int id = int.Parse(CommonS("select " + "count(*)" + "  from " + "friend ")[0][0]) ;
+            Insert("friend", "id='"+ id + "',userid='" + userid+ "',friendid='"+friendid+ "',item='"+item+"'");
+        }
+
         #endregion
 
         #region 数据库的删除操作

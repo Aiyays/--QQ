@@ -186,6 +186,7 @@ namespace Client
         /// 传消息的委托
         /// </summary>
         delegate void asda();
+
         /// <summary>
         /// 根据号码查找登录的socket     
         /// </summary>
@@ -202,6 +203,7 @@ namespace Client
 
         }
 
+        
 
     }
 }
