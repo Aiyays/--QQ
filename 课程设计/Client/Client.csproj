@@ -53,6 +53,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddFriend.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddFriend.Designer.cs">
+      <DependentUpon>AddFriend.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChatForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,11 +66,23 @@
       <DependentUpon>ChatForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Connect.cs" />
+    <Compile Include="DeleteFriend.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteFriend.Designer.cs">
+      <DependentUpon>DeleteFriend.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modify.Designer.cs">
+      <DependentUpon>Modify.cs</DependentUpon>
     </Compile>
     <Compile Include="ProcessingCenter.cs" />
     <Compile Include="Register.cs">
@@ -81,11 +99,20 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddFriend.resx">
+      <DependentUpon>AddFriend.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChatForm.resx">
       <DependentUpon>ChatForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DeleteFriend.resx">
+      <DependentUpon>DeleteFriend.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modify.resx">
+      <DependentUpon>Modify.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.cs</DependentUpon>

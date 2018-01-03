@@ -16,3 +16,12 @@ C:\Users\Administrator\Desktop\课程设计2\课程设计\_CUSTOM_CONTROLS\obj\D
 C:\Users\Administrator\Desktop\课程设计2\课程设计\_CUSTOM_CONTROLS\obj\Debug\_CUSTOM_CONTROLS.csproj.CoreCompileInputs.cache
 C:\Users\Administrator\Desktop\课程设计2\课程设计\_CUSTOM_CONTROLS\obj\Debug\_CUSTOM_CONTROLS.dll
 C:\Users\Administrator\Desktop\课程设计2\课程设计\_CUSTOM_CONTROLS\obj\Debug\_CUSTOM_CONTROLS.pdb
+F:\BYSJ\--QQ\课程设计\_CUSTOM_CONTROLS\bin\Debug\_CUSTOM_CONTROLS.dll
+F:\BYSJ\--QQ\课程设计\_CUSTOM_CONTROLS\bin\Debug\_CUSTOM_CONTROLS.pdb
+F:\BYSJ\--QQ\课程设计\_CUSTOM_CONTROLS\obj\Debug\_CUSTOM_CONTROLS.csprojResolveAssemblyReference.cache
+F:\BYSJ\--QQ\课程设计\_CUSTOM_CONTROLS\obj\Debug\_CUSTOM_CONTROLS.Properties.Resources.resources
+F:\BYSJ\--QQ\课程设计\_CUSTOM_CONTROLS\obj\Debug\_CUSTOM_CONTROLS.ChatListBox.resources
+F:\BYSJ\--QQ\课程设计\_CUSTOM_CONTROLS\obj\Debug\_CUSTOM_CONTROLS.csproj.GenerateResource.Cache
+F:\BYSJ\--QQ\课程设计\_CUSTOM_CONTROLS\obj\Debug\_CUSTOM_CONTROLS.csproj.CoreCompileInputs.cache
+F:\BYSJ\--QQ\课程设计\_CUSTOM_CONTROLS\obj\Debug\_CUSTOM_CONTROLS.dll
+F:\BYSJ\--QQ\课程设计\_CUSTOM_CONTROLS\obj\Debug\_CUSTOM_CONTROLS.pdb

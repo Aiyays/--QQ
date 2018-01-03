@@ -70,3 +70,6 @@ F:\BYSJ\--QQ\课程设计\Client\bin\Debug\Newtonsoft.Json.dll
 F:\BYSJ\--QQ\课程设计\Client\bin\Debug\_CUSTOM_CONTROLS.dll
 F:\BYSJ\--QQ\课程设计\Client\bin\Debug\_CUSTOM_CONTROLS.pdb
 F:\BYSJ\--QQ\课程设计\Client\bin\Debug\Newtonsoft.Json.xml
+F:\BYSJ\--QQ\课程设计\Client\obj\Debug\Client.AddFriend.resources
+F:\BYSJ\--QQ\课程设计\Client\obj\Debug\Client.DeleteFriend.resources
+F:\BYSJ\--QQ\课程设计\Client\obj\Debug\Client.Modify.resources
