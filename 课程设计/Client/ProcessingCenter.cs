@@ -159,7 +159,7 @@ namespace Client
         /// <param 注册的密码="passworld"></param>
         public static void SendRegister(string id, string name, string passworld,string oa)
         {
-            Connect.SendMessage(GetJson("R", id, name, passworld, DateTime.Now.ToString()));
+            Connect.SendMessage(GetJson("R", id, name, passworld,oa));
         }
 
         /// <summary>
@@ -300,7 +300,6 @@ namespace Client
         {
             Land.Adopt(GetType(json)[1] == "True");
             ///这里有一个 当接受到系统返回的注册 成功或者失败的提醒
-           
         }
             
 

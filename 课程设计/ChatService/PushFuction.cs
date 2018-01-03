@@ -91,13 +91,15 @@ namespace ChatService
                     Debug.Print("接受到注册请求处理信息");
                     if (Adopt(json))
                     {
-                        ///当注册的消息准确的时候
-                        //SocketServer.Send(s,GetJson("R","False",null,null,null));
+                        
+                        SocketServer.Send(s,GetJson("R","False",null,null,null));
                     }
                     else
                     {
-                      //  SocketServer.Send(s, GetJson("R", "True", null, null, null));
-                        ///当注册的消息不准确的时候
+                        string[] a = GetType(json);
+                        OperatingDatabase.InsertInformation(a[1], a[2], a[3], DateTime.Now.ToString(), a[4]);
+                        SocketServer.Send(s, GetJson("R", "True", null, null, null));
+                        ///当注册的消息准确的时候
                     }
                     break;
                 case "M":
@@ -118,6 +120,7 @@ namespace ChatService
             List<string[]> a = OperatingDatabase.Select("id","information",null,null ,null);
             foreach (var i in a)
             {
+                Debug.Print(GetType(json)[1]);
                 if (i[0] == GetType(json)[1])
                 {
                     return true;

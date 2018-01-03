@@ -161,9 +161,9 @@ namespace Client
 
         public  void rigger(bool a)
         {
-            if (a)
+            if (!a)
             {
-                this.Invoke(Register.Enab);
+                this.Invoke(Register.Clos);
                 MessageBox.Show("该账号已经被注册");
             }
             else

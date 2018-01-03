@@ -37,3 +37,16 @@ Affected parameters are:
    logtoconsole = 
    logfile = F:\oujij\--QQ\课程设计\ChatService\bin\Debug\ChatService.InstallLog
    assemblypath = F:\oujij\--QQ\课程设计\ChatService\bin\Debug\ChatService.exe
+Installing assembly 'F:\BYSJ\--QQ\课程设计\ChatService\bin\Debug\ChatService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = F:\BYSJ\--QQ\课程设计\ChatService\bin\Debug\ChatService.InstallLog
+   assemblypath = F:\BYSJ\--QQ\课程设计\ChatService\bin\Debug\ChatService.exe
+Installing service ChatService...
+Service ChatService has been successfully installed.
+Creating EventLog source ChatService in log Application...
+Committing assembly 'F:\BYSJ\--QQ\课程设计\ChatService\bin\Debug\ChatService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = F:\BYSJ\--QQ\课程设计\ChatService\bin\Debug\ChatService.InstallLog
+   assemblypath = F:\BYSJ\--QQ\课程设计\ChatService\bin\Debug\ChatService.exe

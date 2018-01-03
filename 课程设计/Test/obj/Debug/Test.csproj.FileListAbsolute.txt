@@ -1,0 +1,12 @@
+F:\BYSJ\--QQ\课程设计\Test\bin\Debug\Test.exe.config
+F:\BYSJ\--QQ\课程设计\Test\bin\Debug\Test.exe
+F:\BYSJ\--QQ\课程设计\Test\bin\Debug\Test.pdb
+F:\BYSJ\--QQ\课程设计\Test\bin\Debug\ChatService.exe
+F:\BYSJ\--QQ\课程设计\Test\bin\Debug\MySql.Data.dll
+F:\BYSJ\--QQ\课程设计\Test\bin\Debug\ChatService.pdb
+F:\BYSJ\--QQ\课程设计\Test\bin\Debug\ChatService.exe.config
+F:\BYSJ\--QQ\课程设计\Test\bin\Debug\MySql.Data.xml
+F:\BYSJ\--QQ\课程设计\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
+F:\BYSJ\--QQ\课程设计\Test\obj\Debug\Test.csproj.CoreCompileInputs.cache
+F:\BYSJ\--QQ\课程设计\Test\obj\Debug\Test.exe
+F:\BYSJ\--QQ\课程设计\Test\obj\Debug\Test.pdb
