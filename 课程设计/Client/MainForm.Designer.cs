@@ -38,16 +38,16 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.MyNub = new System.Windows.Forms.Label();
             this.FriendList = new _CUSTOM_CONTROLS.ChatListBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.clickAddF = new System.Windows.Forms.PictureBox();
+            this.clickDeleteF = new System.Windows.Forms.PictureBox();
+            this.clickModifyF = new System.Windows.Forms.PictureBox();
+            this.clickState = new System.Windows.Forms.PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clickAddF)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clickDeleteF)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clickModifyF)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clickState)).BeginInit();
             this.SuspendLayout();
             // 
             // btnClose
@@ -84,9 +84,8 @@
             this.MyName.ForeColor = System.Drawing.Color.Red;
             this.MyName.Location = new System.Drawing.Point(129, 35);
             this.MyName.Name = "MyName";
-            this.MyName.Size = new System.Drawing.Size(110, 24);
+            this.MyName.Size = new System.Drawing.Size(0, 24);
             this.MyName.TabIndex = 4;
-            this.MyName.Text = "新年快年";
             // 
             // MyAutograph
             // 
@@ -95,9 +94,8 @@
             this.MyAutograph.ForeColor = System.Drawing.SystemColors.Info;
             this.MyAutograph.Location = new System.Drawing.Point(131, 95);
             this.MyAutograph.Name = "MyAutograph";
-            this.MyAutograph.Size = new System.Drawing.Size(125, 12);
+            this.MyAutograph.Size = new System.Drawing.Size(0, 12);
             this.MyAutograph.TabIndex = 5;
-            this.MyAutograph.Text = "春节加wdqwdqwdqwdqwd";
             // 
             // lable5
             // 
@@ -130,9 +128,8 @@
             this.MyNub.ForeColor = System.Drawing.SystemColors.Highlight;
             this.MyNub.Location = new System.Drawing.Point(140, 59);
             this.MyNub.Name = "MyNub";
-            this.MyNub.Size = new System.Drawing.Size(59, 12);
+            this.MyNub.Size = new System.Drawing.Size(0, 12);
             this.MyNub.TabIndex = 9;
-            this.MyNub.Text = "135981246";
             // 
             // FriendList
             // 
@@ -149,49 +146,51 @@
             this.FriendList.TabIndex = 10;
             this.FriendList.DoubleClickSubItem += new _CUSTOM_CONTROLS.ChatListBox.ChatListEventHandler(this.FriendList_DoubleClickSubItem);
             // 
-            // pictureBox2
+            // clickAddF
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
-            this.pictureBox2.Location = new System.Drawing.Point(12, 138);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(39, 29);
-            this.pictureBox2.TabIndex = 11;
-            this.pictureBox2.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox2, "添加好友");
+            this.clickAddF.BackColor = System.Drawing.Color.Transparent;
+            this.clickAddF.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("clickAddF.BackgroundImage")));
+            this.clickAddF.Location = new System.Drawing.Point(12, 138);
+            this.clickAddF.Name = "clickAddF";
+            this.clickAddF.Size = new System.Drawing.Size(39, 29);
+            this.clickAddF.TabIndex = 11;
+            this.clickAddF.TabStop = false;
+            this.toolTip1.SetToolTip(this.clickAddF, "添加好友");
+            this.clickAddF.Click += new System.EventHandler(this.clickAddF_Click);
             // 
-            // pictureBox3
+            // clickDeleteF
             // 
-            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
-            this.pictureBox3.Location = new System.Drawing.Point(93, 138);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(34, 29);
-            this.pictureBox3.TabIndex = 12;
-            this.pictureBox3.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox3, "删除好友");
+            this.clickDeleteF.BackColor = System.Drawing.Color.Transparent;
+            this.clickDeleteF.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("clickDeleteF.BackgroundImage")));
+            this.clickDeleteF.Location = new System.Drawing.Point(93, 138);
+            this.clickDeleteF.Name = "clickDeleteF";
+            this.clickDeleteF.Size = new System.Drawing.Size(34, 29);
+            this.clickDeleteF.TabIndex = 12;
+            this.clickDeleteF.TabStop = false;
+            this.toolTip1.SetToolTip(this.clickDeleteF, "删除好友");
+            this.clickDeleteF.Click += new System.EventHandler(this.clickDeleteF_Click);
             // 
-            // pictureBox4
+            // clickModifyF
             // 
-            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
-            this.pictureBox4.Location = new System.Drawing.Point(168, 138);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(41, 29);
-            this.pictureBox4.TabIndex = 13;
-            this.pictureBox4.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox4, "分组");
+            this.clickModifyF.BackColor = System.Drawing.Color.Transparent;
+            this.clickModifyF.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("clickModifyF.BackgroundImage")));
+            this.clickModifyF.Location = new System.Drawing.Point(168, 138);
+            this.clickModifyF.Name = "clickModifyF";
+            this.clickModifyF.Size = new System.Drawing.Size(41, 29);
+            this.clickModifyF.TabIndex = 13;
+            this.clickModifyF.TabStop = false;
+            this.toolTip1.SetToolTip(this.clickModifyF, "分组");
             // 
-            // pictureBox5
+            // clickState
             // 
-            this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.BackgroundImage")));
-            this.pictureBox5.Location = new System.Drawing.Point(241, 138);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(36, 29);
-            this.pictureBox5.TabIndex = 14;
-            this.pictureBox5.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox5, "选择状态");
+            this.clickState.BackColor = System.Drawing.Color.Transparent;
+            this.clickState.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("clickState.BackgroundImage")));
+            this.clickState.Location = new System.Drawing.Point(241, 138);
+            this.clickState.Name = "clickState";
+            this.clickState.Size = new System.Drawing.Size(36, 29);
+            this.clickState.TabIndex = 14;
+            this.clickState.TabStop = false;
+            this.toolTip1.SetToolTip(this.clickState, "选择状态");
             // 
             // toolTip1
             // 
@@ -204,10 +203,10 @@
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(289, 653);
-            this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.clickState);
+            this.Controls.Add(this.clickModifyF);
+            this.Controls.Add(this.clickDeleteF);
+            this.Controls.Add(this.clickAddF);
             this.Controls.Add(this.FriendList);
             this.Controls.Add(this.MyNub);
             this.Controls.Add(this.pictureBox1);
@@ -222,10 +221,10 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clickAddF)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clickDeleteF)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clickModifyF)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clickState)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -241,10 +240,10 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label MyNub;
         private _CUSTOM_CONTROLS.ChatListBox FriendList;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox clickAddF;
+        private System.Windows.Forms.PictureBox clickDeleteF;
+        private System.Windows.Forms.PictureBox clickModifyF;
+        private System.Windows.Forms.PictureBox clickState;
         private System.Windows.Forms.ToolTip toolTip1;
     }
 }

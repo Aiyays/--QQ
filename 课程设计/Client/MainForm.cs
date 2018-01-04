@@ -63,8 +63,7 @@ namespace Client
         {
             if (ProcessingCenter.Jdage(e.SelectSubItem.NicName))
             {
-                MessageBox.Show("您已经打开了该界面" +
-                    "");
+                MessageBox.Show("您已经打开了该界面");
             }
             else
             {
@@ -94,12 +93,12 @@ namespace Client
         /// <returns></returns>
         public void EverGourp(string json)
         {
-            
+            FriendList.Items.Clear();
             Debug.Print("接受到消息"+json);
-            ChatListBox c = new ChatListBox();
             List<string[]> information = (List<string[]>)ProcessingCenter.JsonToObject(json, new List<string[]>());
+            Debug.Print("a");
             a = information[1];
-            Debug.Print("1");
+           
             for (int i = 0; i < information[0].Length; i++)
             {
                 List<string[]> TemporaryStorage = new List<string[]>();
@@ -115,7 +114,7 @@ namespace Client
             Debug.Print("绘制好友列表"+json);
            
             //this.Invoke();
-            FriendLis(FriendList);
+          //  FriendLis(FriendList);
             
 
         }
@@ -203,7 +202,21 @@ namespace Client
 
         }
 
-        
+        private void clickAddF_Click(object sender, EventArgs e)
+        {
+            new AddFriend(MyNub.Text).Show();
+        }
 
+        private void clickDeleteF_Click(object sender, EventArgs e)
+        {
+            List<string[]> a = new List<string[]>();
+            string[] b = new string[]{ "1"};
+            string[] d = new string[] { "1123","e123","123"};
+            string[] c = new string[] { "1","12312","adf","qwdqw"};
+            a.Add(b); a.Add(d);a.Add(c);
+                ProcessingCenter.ChageAdopt(ProcessingCenter.ObjectToJson(a));
+           
+
+        }
     }
 }

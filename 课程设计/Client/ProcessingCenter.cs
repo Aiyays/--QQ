@@ -13,10 +13,13 @@ using System.Diagnostics;
 
 namespace Client
 {
+    #region 委托声明   本来可以少申请几个
     public delegate void Adopt(string m);
     public delegate void Adoptf(ChatListBox chatListBox);
     public delegate void CatPool(string m);
     public delegate bool AdoptB(string m);
+    public delegate void ThisClose();
+    #endregion
     public static class ProcessingCenter
     {
         #region 委托集合
@@ -107,6 +110,91 @@ namespace Client
         }
         #endregion
 
+
+        #region  向服务器发送
+
+        /// <summary>
+        /// 发送注册消息
+        /// </summary>
+        /// <param 注册的账号="id"></param>
+        /// <param 注册的昵称="name"></param>
+        /// <param 注册的密码="passworld"></param>
+        public static void SendRegister(string id, string name, string passworld,string oa)
+        {
+            Connect.SendMessage(GetJson("R", id, name, passworld,oa));
+        }
+
+        /// <summary>
+        /// 发送消息给好友
+        /// </summary>
+        /// <param 自己的账号="sendid"></param>
+        /// <param 朋友的账号="Friendid"></param>
+        /// <param 发送的信息="message"></param>
+        public static void SendMessage(string sendid, string Friendid, string message)
+        {
+            Connect.SendMessage(GetJson("M", sendid, Friendid, message, null));
+          
+        }
+
+        /// <summary>
+        /// 发送登录信息
+        /// </summary>
+        /// <param 登录的账号="id"></param>
+        /// <param 登录的密码="passworld"></param>
+        /// <param 是否记住密码="Remb"></param>
+        /// <param 记住密码相应的主机号="conputerNub"></param>
+        public static void SendLand(string id, string passworld, string Remb, string conputerNub)
+        {
+            Connect.SendMessage(GetJson("L", id, passworld, Remb, conputerNub));
+        }
+
+        /// <summary>
+        /// 添加一个好友
+        /// </summary>
+        /// <param 请求添加的账号="userId"></param>
+        /// <param 被添加的账号="FriendId"></param>
+        /// <param 被添加好友的分组="Item"></param>
+        public static void SendAddFriend(string userId,string FriendId,string Item)
+        {
+            Connect.SendMessage(GetJson("R",userId,FriendId,Item,null));
+        }
+
+        /// <summary>
+        /// 删除一个好友
+        /// </summary>
+        /// <param 请求删除的账号="userId"></param>
+        /// <param 删除的好友的账号="FriendId"></param>
+        public static void SendDeleteFriend(string userId, string FriendId)
+        {
+            Connect.SendMessage(GetJson("D", userId, FriendId, null, null));
+        }
+
+        /// <summary>
+        /// 修改好友的分组
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="FriendId"></param>
+        /// <param name="Item"></param>
+        public static void SendItem(string userId, string FriendId, string Item)
+        {
+            Connect.SendMessage(GetJson("I", userId, FriendId, Item, null));
+        }
+
+        /// <summary>
+        /// 修改自己的状态
+        /// </summary>
+        /// <param 自己的账号="userId"></param>
+        /// <param 修改的状态="state"> 0快来找我 1 在线  2 离开 3忙碌 4请勿打扰 5 离线</param>
+        public static void SendState(string userId,string state)
+        {
+            Connect.SendMessage(GetJson("S", userId, state , null, null));
+        }
+
+        #endregion  
+
+
+        #region 接受服务器的消息
+
         /// <summary>
         /// 当接受到消息时，消息处理中心
         /// </summary>
@@ -148,42 +236,27 @@ namespace Client
                 case "R":
                     Register(json);
                     break;
+
+                case "A":
+
+                    ///这里有一个返回修改好友的结果的信息
+                    break;
+                case "S":
+                    ///这里有一个修改状态信息的方法
+                    break;
+                case "I":
+                    //这里有一个 修改好友分组的方法
+                    break;
+
+                case "D":
+                    //这里有个删除好友的信息的方法
+                    break;
+
+                case "H":
+                    ProcessingCenter.ChageAdopt(GetType(json)[1]);
+                    //这里有一个刷新好友列表的方法
+                    break;
             }
-        }
-
-        /// <summary>
-        /// 发送注册消息
-        /// </summary>
-        /// <param 注册的账号="id"></param>
-        /// <param 注册的昵称="name"></param>
-        /// <param 注册的密码="passworld"></param>
-        public static void SendRegister(string id, string name, string passworld,string oa)
-        {
-            Connect.SendMessage(GetJson("R", id, name, passworld,oa));
-        }
-
-        /// <summary>
-        /// 发送消息给好友
-        /// </summary>
-        /// <param 自己的账号="sendid"></param>
-        /// <param 朋友的账号="Friendid"></param>
-        /// <param 发送的信息="message"></param>
-        public static void SendMessage(string sendid, string Friendid, string message)
-        {
-            Connect.SendMessage(GetJson("M", sendid, Friendid, message, null));
-          
-        }
-
-        /// <summary>
-        /// 发送登录信息
-        /// </summary>
-        /// <param 登录的账号="id"></param>
-        /// <param 登录的密码="passworld"></param>
-        /// <param 是否记住密码="Remb"></param>
-        /// <param 记住密码相应的主机号="conputerNub"></param>
-        public static void SendLand(string id, string passworld, string Remb, string conputerNub)
-        {
-            Connect.SendMessage(GetJson("L", id, passworld, Remb, conputerNub));
         }
 
         /// <summary>
@@ -204,9 +277,11 @@ namespace Client
                 item.SubItems.AddAccordingToStatus(subItem);
             }
 
-                item.SubItems.Sort();
+            item.SubItems.Sort();
             return item;
         }
+
+        #region 聊天对本地txt文本的操作
 
         /// <summary>
         ///读取文档 
@@ -217,22 +292,22 @@ namespace Client
             int J = 0;
             int N = 0;
             string[] strs2 = File.ReadAllLines(@"ReChat.txt", UTF8Encoding.UTF8);
-            foreach (var i in strs2) 
+            foreach (var i in strs2)
             {
-                if (i == ""){   J++; }
+                if (i == "") { J++; }
             }
-            string[] strs1 = new string[strs2.Length-J];
+            string[] strs1 = new string[strs2.Length - J];
             foreach (var item in strs2)
             {
-                if (item!="")
+                if (item != "")
                 {
                     strs1[N] = item;
                     N++;
                 }
             }
-            return strs1 ;
+            return strs1;
         }
-        
+
         /// <summary>
         /// 向文档写入一条数据
         /// </summary>
@@ -258,7 +333,7 @@ namespace Client
             string[] read = Read();
             for (int i = 0; i < read.Length; i++)
             {
-             
+
                 if (read[i] == a)
                 {
                     read[i] = "";
@@ -268,6 +343,9 @@ namespace Client
 
         }
 
+        #endregion
+
+
         /// <summary>
         /// 当发生点击点击事件的时候  查询当前是否发生数据 并删除同步
         /// </summary>
@@ -275,11 +353,11 @@ namespace Client
         /// <returns>如果有好友发来消息，则返回</returns>
         public static string[] ClikRm(string clic)
         {
-            string[] test= Read();
+            string[] test = Read();
             for (int i = 0; i < test.Length; i++)
             {
-                Debug.Print("查询到消息记录"+test[i]);
-                Debug.Print(test[i]+"和"+clic);
+                Debug.Print("查询到消息记录" + test[i]);
+                Debug.Print(test[i] + "和" + clic);
                 if (GetType(test[i])[1] == clic)
                 {
                     Delegt(test[i]);
@@ -301,7 +379,9 @@ namespace Client
             Land.Adopt(GetType(json)[1] == "True");
             ///这里有一个 当接受到系统返回的注册 成功或者失败的提醒
         }
-            
+
+        #endregion  
+
 
 
     }
