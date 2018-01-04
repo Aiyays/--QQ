@@ -16,6 +16,8 @@ namespace Client
    
     public partial class MainForm : Form
     {
+        public static Adopt SM;
+
         List<Socket> socketpool = new List<Socket>();
         /// <summary>
         /// 创建一个对象池
@@ -34,6 +36,7 @@ namespace Client
             ProcessingCenter.ChageAdoptM=new Adopt(Recevice);
             ProcessingCenter.chatPool = new CatPool(GetChatFrom);
             ProcessingCenter.Jdage = new AdoptB(JudegEx);
+            SM = new Adopt(ShowMessage);
 
 
         }
@@ -184,7 +187,7 @@ namespace Client
         /// <summary>
         /// 传消息的委托
         /// </summary>
-        delegate void asda();
+    //    delegate void asda();
 
         /// <summary>
         /// 根据号码查找登录的socket     
@@ -197,8 +200,8 @@ namespace Client
             Debug.Print(i+"");
             Debug.Print("");
             chatList[i].GetV=ProcessingCenter.GetType(json);
-            asda a = new asda(chatList[i].Send);
-            this.Invoke(a);
+        //    asda a = new asda(chatList[i].Send);
+            this.Invoke(new ThisClose(chatList[i].Send));
 
         }
 
@@ -217,6 +220,15 @@ namespace Client
                 ProcessingCenter.ChageAdopt(ProcessingCenter.ObjectToJson(a));
            
 
+        }
+
+        /// <summary>
+        /// 弹出一个messagebox的弹窗
+        /// </summary>
+        /// <param 显示的消息="a"></param>
+        private void ShowMessage(string a)
+        {
+            MessageBox.Show(a);
         }
     }
 }

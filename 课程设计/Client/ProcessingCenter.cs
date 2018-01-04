@@ -238,8 +238,15 @@ namespace Client
                     break;
 
                 case "A":
-
-                    ///这里有一个返回修改好友的结果的信息
+                    if (GetType(json)[1]=="True")
+                    {
+                        MainForm.SM("添加好友成功");
+                    }
+                    else
+                    {
+                        MainForm.SM("添加失败,请确认您输入的账号是否有误");
+                    }
+                    
                     break;
                 case "S":
                     ///这里有一个修改状态信息的方法
@@ -253,7 +260,8 @@ namespace Client
                     break;
 
                 case "H":
-                    ProcessingCenter.ChageAdopt(GetType(json)[1]);
+
+                    Adopt(GetType(json)[2]);
                     //这里有一个刷新好友列表的方法
                     break;
             }
