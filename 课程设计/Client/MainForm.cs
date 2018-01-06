@@ -10,15 +10,19 @@ using System.Windows.Forms;
 using _CUSTOM_CONTROLS;
 using System.Diagnostics;
 using System.Net.Sockets;
+using System.Threading;
 
 namespace Client
 {
    
     public partial class MainForm : Form
     {
-        public static Adopt SM;
-
+        public static int i = 0;
+        public static Adopt SM;//从主窗口弹出messageBox弹窗的委托
+        private static  string friend;
+        public static string Friend { get { return friend; }set { friend = value; } }
         List<Socket> socketpool = new List<Socket>();
+
         /// <summary>
         /// 创建一个对象池
         /// </summary>
@@ -37,6 +41,7 @@ namespace Client
             ProcessingCenter.chatPool = new CatPool(GetChatFrom);
             ProcessingCenter.Jdage = new AdoptB(JudegEx);
             SM = new Adopt(ShowMessage);
+            StateAjopt.Visible = false;
 
 
         }
@@ -184,10 +189,6 @@ namespace Client
             return nubList.Contains(nub);
         }
 
-        /// <summary>
-        /// 传消息的委托
-        /// </summary>
-    //    delegate void asda();
 
         /// <summary>
         /// 根据号码查找登录的socket     
@@ -212,14 +213,8 @@ namespace Client
 
         private void clickDeleteF_Click(object sender, EventArgs e)
         {
-            List<string[]> a = new List<string[]>();
-            string[] b = new string[]{ "1"};
-            string[] d = new string[] { "1123","e123","123"};
-            string[] c = new string[] { "1","12312","adf","qwdqw"};
-            a.Add(b); a.Add(d);a.Add(c);
-                ProcessingCenter.ChageAdopt(ProcessingCenter.ObjectToJson(a));
-           
-
+            Debug.Print(MyNub.Text);
+            new DeleteFriend(MyNub.Text).Show();
         }
 
         /// <summary>
@@ -229,6 +224,44 @@ namespace Client
         private void ShowMessage(string a)
         {
             MessageBox.Show(a);
+        }
+
+        private void clickModifyF_Click(object sender, EventArgs e)
+        {
+            new Modify(MyNub.Text).Show();
+        }
+
+        private void clickState_Click(object sender, EventArgs e)
+        {
+            new State().Show();
+        }
+
+        private void clickState_MouseEnter(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void clickState_MouseLeave(object sender, EventArgs e)
+        {
+       
+        }
+        bool sa=false;
+        
+
+        private void  StateAjopt_MouseEnter(object sender, EventArgs e)
+        {
+      
+        }
+
+        private void StateAjopt_MouseLeave(object sender, EventArgs e)
+        {
+            StateAjopt.Visible = false;
+        }
+
+        private void clickState_Click_1(object sender, EventArgs e)
+        {
+            StateAjopt.Visible = true;
+
         }
     }
 }

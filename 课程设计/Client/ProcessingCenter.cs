@@ -156,7 +156,7 @@ namespace Client
         /// <param 被添加好友的分组="Item"></param>
         public static void SendAddFriend(string userId,string FriendId,string Item)
         {
-            Connect.SendMessage(GetJson("R",userId,FriendId,Item,null));
+            Connect.SendMessage(GetJson("A",userId,FriendId,Item,null));
         }
 
         /// <summary>
@@ -214,6 +214,7 @@ namespace Client
                         {
                             Debug.Print(GetType(json)[2]);
                             while (kongzhi) ;
+                            MainForm.Friend = GetType(json)[2];
                             Adopt(GetType(json)[2]);
                         }
                     }
@@ -239,7 +240,7 @@ namespace Client
 
                 case "A":
                     if (GetType(json)[1]=="True")
-                    {
+                    { 
                         MainForm.SM("添加好友成功");
                     }
                     else
@@ -247,22 +248,13 @@ namespace Client
                         MainForm.SM("添加失败,请确认您输入的账号是否有误");
                     }
                     
-                    break;
-                case "S":
-                    ///这里有一个修改状态信息的方法
-                    break;
-                case "I":
-                    //这里有一个 修改好友分组的方法
-                    break;
-
-                case "D":
-                    //这里有个删除好友的信息的方法
-                    break;
+                    break;              
 
                 case "H":
 
                     Adopt(GetType(json)[2]);
-                    //这里有一个刷新好友列表的方法
+                    MainForm.Friend = GetType(json)[2];
+                    ///这里有一个刷新好友列表的方法
                     break;
             }
         }
@@ -388,8 +380,52 @@ namespace Client
             ///这里有一个 当接受到系统返回的注册 成功或者失败的提醒
         }
 
-        #endregion  
 
+        /// <summary>
+        /// 检查好友中是否存在该好友
+        /// </summary>
+        /// 如果好友列表 有该好友 则返回True如果没有 则返回FALSE
+        public static bool IsBExistence(string nub)
+        {
+            Debug.Print(MainForm.Friend);
+            List<string[]> a = (List<string[]>)ProcessingCenter.JsonToObject(MainForm.Friend, new List<string[]>());
+            foreach (var i in  a)
+            {
+                if (i!= a[0]&& i!=a[1] &&i[1] == nub)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// 检查好友列表  是否存在该好友
+        /// </summary>
+        /// <param 好友名="nub"></param>
+        /// <param 组名="item"></param>
+        /// <returns></returns>
+        public static bool IsBeItemex(string nub,string item)
+        {
+            List<string[]> a = (List<string[]>)ProcessingCenter.JsonToObject(MainForm.Friend, new List<string[]>());
+            foreach (var i in a)
+            {
+                if (i != a[0] && i != a[1]&&i[1] == nub)
+                {
+                    if (i[0] == item)
+                    {
+                        return true;
+                    }
+                    
+                }
+            }
+            return false;
+            
+        }
+
+
+        #endregion
+         
 
 
     }

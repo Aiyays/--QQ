@@ -14,9 +14,9 @@ namespace ChatService
     public static class PushFuction
     {
         #region 委托
-        public   static Adpot HandleL;
-        public   static Adpot HandleM;
-        
+        public static Adpot HandleL;
+        public static Adpot HandleM;
+
 
 
         #endregion
@@ -58,9 +58,9 @@ namespace ChatService
         /// <param 账号="Nub"></param>
         /// <param 消息="M"></param>
         /// <returns></returns>
-        public static string GetJson(string T,string Nub,string M,string Adopt,string Remenb)
+        public static string GetJson(string T, string Nub, string M, string Adopt, string Remenb)
         {
-            return PushFuction.ObjectToJson(new string[] { T,Nub,M,Adopt,Remenb});
+            return PushFuction.ObjectToJson(new string[] { T, Nub, M, Adopt, Remenb });
         }
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace ChatService
         /// <returns></returns>
         public static string[] GetType(string json)
         {
-             return (string[])PushFuction.JsonToObject(json,new string[] { });
+            return (string[])PushFuction.JsonToObject(json, new string[] { });
         }
         #endregion
 
@@ -79,20 +79,20 @@ namespace ChatService
         /// 服务器接受到消息的处理中心
         /// </summary>
         /// <param 接收到的消息="json"></param>
-        public static void AdoptCenter(Socket s,string json)
+        public static void AdoptCenter(Socket s, string json)
         {
             switch (GetType(json)[0])
             {
                 case "L":
                     Debug.Print("接受到登录请求处理信息");
-                    AdoptLand(s,json);
+                    AdoptLand(s, json);
                     break;
                 case "R":
                     Debug.Print("接受到注册请求处理信息");
                     if (Adopt(json))
                     {
-                        
-                        SocketServer.Send(s,GetJson("R","False",null,null,null));
+
+                        SocketServer.Send(s, GetJson("R", "False", null, null, null));
                     }
                     else
                     {
@@ -103,21 +103,47 @@ namespace ChatService
                     }
                     break;
                 case "M":
-                    Debug.Print("接受到消息时触发该指令"+json );
+                    Debug.Print("接受到消息时触发该指令" + json);
 
                     AdoptPush(json);
+                    break;
+
+                case "A":
+                    ///处理添加好友的方法
+                    AddFrienda(json);
+                    if (AddFriend(GetType(json)[2]))
+                    {
+                        
+                        SocketServer.Send(SocketPool.GetSocket(GetType(json)[2]), GetJson("H", "", ObjectToJson(AdpotFriend(GetType(json)[2])), null, null));
+                    }
+                    SocketServer.Send(s, GetJson("H", "", ObjectToJson(AdpotFriend(GetType(json)[1])), null, null));
+                    break;
+
+                case "D":
+                    ///处理删除好友的方法
+                    OperatingDatabase.DeleteFriend(GetType(json)[1], GetType(json)[2]);
+                    SocketServer.Send(s, GetJson("H", "", ObjectToJson(AdpotFriend(GetType(json)[1])), null, null));
+                    break;
+                case "I":
+                    ///修改分组
+                    UpdateI(json);
+                    SocketServer.Send(s, GetJson("H", "", ObjectToJson(AdpotFriend(GetType(json)[1])), null, null));
+
+                    break;
+                case "S":
+                    ///修改状态   这个暂时不写
                     break;
                 default:
                     Debug.Print("接收到非法错误指令时，不予处理");
                     break;
-                
+
             }
         }
 
         #region 注册
         public static bool Adopt(string json)
         {
-            List<string[]> a = OperatingDatabase.Select("id","information",null,null ,null);
+            List<string[]> a = OperatingDatabase.Select("id", "information", null, null, null);
             foreach (var i in a)
             {
                 Debug.Print(GetType(json)[1]);
@@ -132,6 +158,7 @@ namespace ChatService
         #endregion
 
         #region 登录
+        
 
         /// <summary>
         /// 判断是否登录 并且向客户端发送消息
@@ -185,6 +212,13 @@ namespace ChatService
              
         }
 
+        public static void AddFrienda(string json)
+        {
+            string[] a = GetType(json);
+            OperatingDatabase.InsertFriend(a[1],a[2],a[3]);
+            OperatingDatabase.InsertFriend(a[2], a[1], "添加我的好友");
+        }
+
         /// <summary>
         /// 好友信息
         /// </summary>
@@ -229,7 +263,7 @@ namespace ChatService
         #region 推送消息
         
         /// <summary>
-        /// 当接到一条消息 
+        /// 当接到一条发送给好友的消息 
         /// </summary>
         /// <param 接收到发送给好友的消息="json"></param>
         public static void AdoptPush(string json)
@@ -254,6 +288,29 @@ namespace ChatService
         }
         #endregion
 
+
+        #region 添加 删除 修改分组
+
+        public static  bool AddFriend(string nub)
+        {
+            foreach (var item in SocketPool.GetSocketNubPool())
+            {
+                if (nub==item)
+                {
+                    return true;
+                }
+            }
+            return false;
+
+        }
+
+        public static void UpdateI(string json)
+        {
+            string[] a = GetType(json);
+            OperatingDatabase.UpdateItem(a[3],a[1],a[2]);
+            
+        }
+        #endregion
 
         #region 修改资料
 

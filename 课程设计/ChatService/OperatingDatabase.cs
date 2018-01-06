@@ -142,6 +142,8 @@ namespace ChatService
             Insert("friend", "id='"+ id + "',userid='" + userid+ "',friendid='"+friendid+ "',item='"+item+"'");
         }
 
+
+
         #endregion
 
         #region 数据库的删除操作
@@ -157,21 +159,39 @@ namespace ChatService
             {
                 case "database":
                     Common("DROP DATABASE " + name);
+                    mysql.Dispose();
                     break;
                 case "table":
                     Common("DROP TABLE " + name);
+                    mysql.Dispose();
                     break;
                 case "date":
+                    Debug.Print("DELETE FROM " + name + " WHERE " + adopt);
                     Common("DELETE FROM " + name + " WHERE " + adopt);
+                    mysql.Dispose();
                     break;
             }
         }
 
+        public static void DeleteFriend(string useId,string friendId)
+        {
+            Debug.Print("");
+            Delete("date","friend","userid="+useId+" and friendid="+friendId);
+        }
 
         #endregion
 
         #region 表的修改
-
+        /// <summary>
+        /// 修改分组
+        /// </summary>
+        /// <param 修改分组="item"></param>
+        public static  void UpdateItem(string item,string uid,string fid)
+        {
+            Debug.Print("update friend set item='" + item + "' where userid=" + uid + " ,friendid=" + fid);
+            Common("update friend set item='" + item+"' where userid="+uid+" and friendid="+fid);
+            mysql.Dispose();
+        }
         #endregion
 
         #region  表的查询

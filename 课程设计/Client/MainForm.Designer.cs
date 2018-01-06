@@ -43,11 +43,14 @@
             this.clickModifyF = new System.Windows.Forms.PictureBox();
             this.clickState = new System.Windows.Forms.PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.StateAjopt = new Client.States();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clickAddF)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clickDeleteF)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clickModifyF)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clickState)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // btnClose
@@ -180,21 +183,47 @@
             this.clickModifyF.TabIndex = 13;
             this.clickModifyF.TabStop = false;
             this.toolTip1.SetToolTip(this.clickModifyF, "分组");
+            this.clickModifyF.Click += new System.EventHandler(this.clickModifyF_Click);
             // 
             // clickState
             // 
             this.clickState.BackColor = System.Drawing.Color.Transparent;
             this.clickState.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("clickState.BackgroundImage")));
-            this.clickState.Location = new System.Drawing.Point(241, 138);
+            this.clickState.Location = new System.Drawing.Point(115, 119);
             this.clickState.Name = "clickState";
-            this.clickState.Size = new System.Drawing.Size(36, 29);
+            this.clickState.Size = new System.Drawing.Size(12, 13);
             this.clickState.TabIndex = 14;
             this.clickState.TabStop = false;
             this.toolTip1.SetToolTip(this.clickState, "选择状态");
+            this.clickState.Click += new System.EventHandler(this.clickState_Click_1);
             // 
             // toolTip1
             // 
             this.toolTip1.IsBalloon = true;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
+            this.pictureBox2.Location = new System.Drawing.Point(236, 138);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(41, 29);
+            this.pictureBox2.TabIndex = 15;
+            this.pictureBox2.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox2, "分组");
+            // 
+            // StateAjopt
+            // 
+            this.StateAjopt.BackColor = System.Drawing.Color.Transparent;
+            this.StateAjopt.ForeColor = System.Drawing.Color.Crimson;
+            this.StateAjopt.Location = new System.Drawing.Point(154, 119);
+            this.StateAjopt.MaximumSize = new System.Drawing.Size(102, 14);
+            this.StateAjopt.MinimumSize = new System.Drawing.Size(102, 14);
+            this.StateAjopt.Name = "StateAjopt";
+            this.StateAjopt.Size = new System.Drawing.Size(102, 14);
+            this.StateAjopt.TabIndex = 16;
+            this.StateAjopt.MouseEnter += new System.EventHandler(this.StateAjopt_MouseEnter);
+            this.StateAjopt.MouseLeave += new System.EventHandler(this.StateAjopt_MouseLeave);
             // 
             // MainForm
             // 
@@ -203,6 +232,8 @@
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(289, 653);
+            this.Controls.Add(this.StateAjopt);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.clickState);
             this.Controls.Add(this.clickModifyF);
             this.Controls.Add(this.clickDeleteF);
@@ -225,6 +256,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.clickDeleteF)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clickModifyF)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clickState)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -245,5 +277,7 @@
         private System.Windows.Forms.PictureBox clickModifyF;
         private System.Windows.Forms.PictureBox clickState;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private States StateAjopt;
     }
 }

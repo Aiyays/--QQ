@@ -64,7 +64,7 @@ namespace ChatService
         /// 获取当前所有连接的号码
         /// </summary>
         /// <returns></returns>
-        public static List<string> GetSocketPool()
+        public static List<string> GetSocketNubPool()
         {
             return nubpool;
         }

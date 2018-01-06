@@ -50,3 +50,42 @@ Affected parameters are:
    logtoconsole = 
    logfile = F:\BYSJ\--QQ\课程设计\ChatService\bin\Debug\ChatService.InstallLog
    assemblypath = F:\BYSJ\--QQ\课程设计\ChatService\bin\Debug\ChatService.exe
+正在安装程序集“F:\项目文件\项目一\--QQ\课程设计\ChatService\bin\Debug\ChatService.exe”。
+受影响的参数是:
+   logtoconsole = 
+   logfile = F:\项目文件\项目一\--QQ\课程设计\ChatService\bin\Debug\ChatService.InstallLog
+   assemblypath = F:\项目文件\项目一\--QQ\课程设计\ChatService\bin\Debug\ChatService.exe
+正在安装服务 ChatService...
+正在日志 Application 中创建 EventLog 源 ChatService...
+正在回滚程序集“F:\项目文件\项目一\--QQ\课程设计\ChatService\bin\Debug\ChatService.exe”。
+受影响的参数是:
+   logtoconsole = 
+   logfile = F:\项目文件\项目一\--QQ\课程设计\ChatService\bin\Debug\ChatService.InstallLog
+   assemblypath = F:\项目文件\项目一\--QQ\课程设计\ChatService\bin\Debug\ChatService.exe
+正在将事件日志还原到源 ChatService 的前一状态。
+正在安装程序集“F:\项目文件\项目一\--QQ\课程设计\ChatService\bin\Debug\ChatService.exe”。
+受影响的参数是:
+   logtoconsole = 
+   logfile = F:\项目文件\项目一\--QQ\课程设计\ChatService\bin\Debug\ChatService.InstallLog
+   assemblypath = F:\项目文件\项目一\--QQ\课程设计\ChatService\bin\Debug\ChatService.exe
+正在安装服务 ChatService...
+正在日志 Application 中创建 EventLog 源 ChatService...
+正在回滚程序集“F:\项目文件\项目一\--QQ\课程设计\ChatService\bin\Debug\ChatService.exe”。
+受影响的参数是:
+   logtoconsole = 
+   logfile = F:\项目文件\项目一\--QQ\课程设计\ChatService\bin\Debug\ChatService.InstallLog
+   assemblypath = F:\项目文件\项目一\--QQ\课程设计\ChatService\bin\Debug\ChatService.exe
+正在将事件日志还原到源 ChatService 的前一状态。
+正在安装程序集“F:\项目文件\项目一\--QQ\课程设计\ChatService\bin\Debug\ChatService.exe”。
+受影响的参数是:
+   logtoconsole = 
+   logfile = F:\项目文件\项目一\--QQ\课程设计\ChatService\bin\Debug\ChatService.InstallLog
+   assemblypath = F:\项目文件\项目一\--QQ\课程设计\ChatService\bin\Debug\ChatService.exe
+正在安装服务 ChatService...
+已成功安装服务 ChatService。
+正在日志 Application 中创建 EventLog 源 ChatService...
+正在提交程序集“F:\项目文件\项目一\--QQ\课程设计\ChatService\bin\Debug\ChatService.exe”。
+受影响的参数是:
+   logtoconsole = 
+   logfile = F:\项目文件\项目一\--QQ\课程设计\ChatService\bin\Debug\ChatService.InstallLog
+   assemblypath = F:\项目文件\项目一\--QQ\课程设计\ChatService\bin\Debug\ChatService.exe

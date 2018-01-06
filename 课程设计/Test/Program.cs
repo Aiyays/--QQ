@@ -10,8 +10,7 @@ namespace Test
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(PushFuction.Adopt("").ToString());
-            ;
+            OperatingDatabase.DeleteFriend("4","5");
             Console.ReadLine();
         }
     }
